@@ -10,16 +10,20 @@ public class SteeringController : MonoBehaviour
     //Rigidbody m_rigidbody;
     private Transform m_sphereTransform;
     public GameObject m_sphere;
+    private SphereController m_sphereController;
+    private Rigidbody m_sphereRB;
     public float m_steer;
     public Transform m_SteeringTransform;
     public Transform m_wheelTransform;
+    public Transform m_wheelTransformReverse;
     public float m_steeringPower = 1f;
-
-   // public float m_steeringParked = 2f;
-//    public float m_steeringDrift = 2f;
-  //  public float m_steeringDrift = 2f;
-  //  public float m_steeringDrift = 2f;
-
+    public float m_velocityMagnitude = 0;
+    // public float m_steeringParked = 2f;
+    //    public float m_steeringDrift = 2f;
+    //  public float m_steeringDrift = 2f;
+    //  public float m_steeringDrift = 2f;
+    private float steeringAdjustment = 1f;
+    private bool m_drivingReverse;
 
     public float MAXSTEERINGPOWER = 2f;
 
@@ -27,23 +31,45 @@ public class SteeringController : MonoBehaviour
     {
         // m_rigidbody = GetComponent<Rigidbody>();
         m_sphereTransform = m_sphere.transform;
+        m_sphereController = m_sphere.GetComponent<SphereController>();
+        m_sphereRB = m_sphere.GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
+        m_drivingReverse = m_sphereController.m_reverse;
+        
         m_steer = Input.GetAxis("Horizontal")* m_steeringPower;
         transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y-.25f, m_sphereTransform.position.z);
         // transform.rotation = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y - .5f, m_sphereTransform.position.z);
-       
-        transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower*.1f);
-        
-        if (m_steer!=0)
+
+        // transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower*.1f);
+        m_velocityMagnitude = m_sphereRB.velocity.magnitude;
+
+        if (m_drivingReverse)
         {
-            //m_SteeringTransform.Rotate(0,m_steer,0);
+            if (m_velocityMagnitude < 5f)
+            {
+                steeringAdjustment = m_velocityMagnitude / 5f;
+                transform.rotation = math.slerp(transform.rotation, m_wheelTransformReverse.rotation, m_steeringPower * steeringAdjustment * .1f);
+            }
+            else
+            {
+                transform.rotation = math.slerp(transform.rotation, m_wheelTransformReverse.rotation, m_steeringPower * .1f);
+            }
         }
-       // m_SteeringTransform.Rotate(0,m_steer,0);
-       // m_SteeringTransform.rotation = Quaternion
-       // m_rigidbody.rotation = transform.rotation;
+        else
+        {
+            if (m_velocityMagnitude < 5f)
+            {
+                steeringAdjustment = m_velocityMagnitude / 5f;
+                transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * steeringAdjustment * .1f);
+            }
+            else
+            {
+                transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
+            }
+        }
     }
     
 }

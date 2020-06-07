@@ -12,7 +12,9 @@ public class SphereController : MonoBehaviour
     SphereCollider m_sphereCollider = null;
     public GameObject m_vehicle;
     public Transform m_Steering;
-    
+    public bool m_reverse = false;
+
+    public bool m_breaking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +26,28 @@ public class SphereController : MonoBehaviour
     void Update()
     {
         m_acceleration = Input.GetAxis("Vertical") * ACCELERATION;
+
+        m_breaking = Input.GetKey(KeyCode.Space);
+
+        if (m_acceleration < -.1f)
+        {
+            m_reverse = true;
+            m_acceleration *= .6f;
+        }
+        else if (m_acceleration > .1f)
+        {
+            m_reverse = false;
+        }
+
+        if (m_breaking)
+        {
+            m_acceleration *= .15f;
+        }
     }
-    
-    void FixedUpdate() {
-        
+
+    void FixedUpdate()
+    {
+
         if (Mathf.Abs(m_acceleration) > .1)
         {
             m_force = m_acceleration * m_Steering.forward;
