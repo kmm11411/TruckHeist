@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: 53f2c2c7fa1c3dd4d85233eedc5f2548
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: CATRigHub001
+    100002: CATRigHub002
+    100004: CATRigHub002 1
+    100006: CATRigLArm1
+    100008: CATRigLArm2
+    100010: CATRigLArmCollarbone
+    100012: CATRigLArmDigit11
+    100014: CATRigLArmDigit12
+    100016: CATRigLArmDigit21
+    100018: CATRigLArmDigit22
+    100020: CATRigLArmDigit23
+    100022: CATRigLArmPalm
+    100024: CATRigLLeg1
+    100026: CATRigLLeg2
+    100028: CATRigLLegAnkle
+    100030: CATRigLLegPlatform
+    100032: CATRigRArm1
+    100034: CATRigRArm2
+    100036: CATRigRArmCollarbone
+    100038: CATRigRArmDigit11
+    100040: CATRigRArmDigit12
+    100042: CATRigRArmDigit21
+    100044: CATRigRArmDigit22
+    100046: CATRigRArmDigit23
+    100048: CATRigRArmPalm
+    100050: CATRigRLeg1
+    100052: CATRigRLeg2
+    100054: CATRigRLegAnkle
+    100056: CATRigRLegPlatform
+    100058: CATRigSpine
+    100060: CATRigSpine1
+    100062: CATRigSpine2
+    100064: Character001
+    100066: SDBody_LOD0
+    100068: SDHelmet_LOD0
+    100070: //RootNode
+    100072: StreetDriver
+    100074: SDBody_LOD1
+    100076: SDBody_LOD2
+    100078: SDHelmet_LOD1
+    100080: SDHelmet_LOD2
+    100082: StreetDriver0
+    400000: CATRigHub001
+    400002: CATRigHub002
+    400004: CATRigHub002 1
+    400006: CATRigLArm1
+    400008: CATRigLArm2
+    400010: CATRigLArmCollarbone
+    400012: CATRigLArmDigit11
+    400014: CATRigLArmDigit12
+    400016: CATRigLArmDigit21
+    400018: CATRigLArmDigit22
+    400020: CATRigLArmDigit23
+    400022: CATRigLArmPalm
+    400024: CATRigLLeg1
+    400026: CATRigLLeg2
+    400028: CATRigLLegAnkle
+    400030: CATRigLLegPlatform
+    400032: CATRigRArm1
+    400034: CATRigRArm2
+    400036: CATRigRArmCollarbone
+    400038: CATRigRArmDigit11
+    400040: CATRigRArmDigit12
+    400042: CATRigRArmDigit21
+    400044: CATRigRArmDigit22
+    400046: CATRigRArmDigit23
+    400048: CATRigRArmPalm
+    400050: CATRigRLeg1
+    400052: CATRigRLeg2
+    400054: CATRigRLegAnkle
+    400056: CATRigRLegPlatform
+    400058: CATRigSpine
+    400060: CATRigSpine1
+    400062: CATRigSpine2
+    400064: Character001
+    400066: SDBody_LOD0
+    400068: SDHelmet_LOD0
+    400070: //RootNode
+    400072: StreetDriver
+    400074: SDBody_LOD1
+    400076: SDBody_LOD2
+    400078: SDHelmet_LOD1
+    400080: SDHelmet_LOD2
+    400082: StreetDriver0
+    2100000: Skin1Body
+    2100002: Skin1Helmet
+    4300000: SDBody_LOD0
+    4300002: SDHelmet_LOD0
+    4300004: SDBody_LOD1
+    4300006: SDHelmet_LOD1
+    4300008: SDHelmet_LOD2
+    4300010: SDBody_LOD2
+    9500000: //RootNode
+    13700000: SDBody_LOD0
+    13700002: SDHelmet_LOD0
+    13700004: SDBody_LOD1
+    13700006: SDBody_LOD2
+    13700008: SDHelmet_LOD1
+    13700010: SDHelmet_LOD2
+    20500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin1Body
+    second: {fileID: 2100000, guid: 4ae1430ee87d8124aaeae3003ecc99a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin1Helmet
+    second: {fileID: 2100000, guid: 5cff74debd8a40b43bcb838eb46553da, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
