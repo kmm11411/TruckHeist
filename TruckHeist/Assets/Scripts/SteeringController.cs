@@ -24,6 +24,7 @@ public class SteeringController : MonoBehaviour
     //  public float m_steeringDrift = 2f;
     private float steeringAdjustment = 1f;
     private bool m_drivingReverse;
+    public float m_adjustmentYOffset = .25f;
 
     public float MAXSTEERINGPOWER = 2f;
 
@@ -40,10 +41,8 @@ public class SteeringController : MonoBehaviour
         m_drivingReverse = m_sphereController.m_reverse;
         
         m_steer = Input.GetAxis("Horizontal")* m_steeringPower;
-        transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y-.25f, m_sphereTransform.position.z);
-        // transform.rotation = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y - .5f, m_sphereTransform.position.z);
+        transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
 
-        // transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower*.1f);
         m_velocityMagnitude = m_sphereRB.velocity.magnitude;
 
         if (m_drivingReverse)
