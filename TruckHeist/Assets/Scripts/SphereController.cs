@@ -26,17 +26,22 @@ public class SphereController : MonoBehaviour
     void Update()
     {
         m_acceleration = Input.GetAxis("Vertical") * ACCELERATION;
-
+        
         m_breaking = Input.GetKey(KeyCode.Space);
 
-        if (m_acceleration < -.1f)
+        if (m_acceleration > .1f)
+        {
+            m_reverse = false;
+        }
+        else if ((m_rigidbody.velocity.magnitude < 1f || m_reverse == true) && m_acceleration < -.1f)
         {
             m_reverse = true;
             m_acceleration *= .6f;
         }
-        else if (m_acceleration > .1f)
+        else
         {
-            m_reverse = false;
+            //m_reverse = false;
+            m_acceleration = 0;
         }
 
         if (m_breaking)
