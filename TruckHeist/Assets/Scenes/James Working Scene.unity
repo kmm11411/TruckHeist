@@ -291,6 +291,19 @@ MonoBehaviour:
   m_adjustmentYOffset: 0.75
   m_ActivePlayer: 0
   MAXSTEERINGPOWER: 2
+--- !u!114 &433284467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433284463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3bb48a8c5b875479cec6e66b511889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_chasing: 0
 --- !u!1 &488803901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DriveableCar3
       objectReference: {fileID: 0}
+    - target: {fileID: 7639108061965164975, guid: ca741aa779bb25141ae8edca71ebb535,
+        type: 3}
+      propertyPath: m_TagString
+      value: Car
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca741aa779bb25141ae8edca71ebb535, type: 3}
 --- !u!1 &1025535759
@@ -1342,6 +1360,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639108061965164975, guid: ca741aa779bb25141ae8edca71ebb535,
+        type: 3}
+      propertyPath: m_TagString
+      value: Car
       objectReference: {fileID: 0}
     - target: {fileID: 7639882865279536691, guid: ca741aa779bb25141ae8edca71ebb535,
         type: 3}
@@ -2798,10 +2821,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 367416555727626887, guid: 28c1f9c71357f3748a9c9496118db033,
+        type: 3}
+      propertyPath: m_TagString
+      value: Truck
+      objectReference: {fileID: 0}
     - target: {fileID: 367431501431634542, guid: 28c1f9c71357f3748a9c9496118db033,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 367431501431634542, guid: 28c1f9c71357f3748a9c9496118db033,
+        type: 3}
+      propertyPath: m_TagString
+      value: Truck
       objectReference: {fileID: 0}
     - target: {fileID: 367893481365715846, guid: 28c1f9c71357f3748a9c9496118db033,
         type: 3}
@@ -2877,6 +2910,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 368467813594445341, guid: 28c1f9c71357f3748a9c9496118db033,
+        type: 3}
+      propertyPath: m_TagString
+      value: Truck
       objectReference: {fileID: 0}
     - target: {fileID: 368937225782428849, guid: 28c1f9c71357f3748a9c9496118db033,
         type: 3}
@@ -3041,6 +3079,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639108061965164975, guid: ca741aa779bb25141ae8edca71ebb535,
+        type: 3}
+      propertyPath: m_TagString
+      value: Car
       objectReference: {fileID: 0}
     - target: {fileID: 7639882865279536691, guid: ca741aa779bb25141ae8edca71ebb535,
         type: 3}
