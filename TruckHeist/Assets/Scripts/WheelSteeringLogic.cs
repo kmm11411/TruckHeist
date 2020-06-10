@@ -16,6 +16,7 @@ public class WheelSteeringLogic : MonoBehaviour
     public float m_steeringPower = 1f;
     public bool m_ReverseRotation = false;
     float wheelSpin = 0f;
+    public bool m_ActivePlayer = false;
 
     private float MAXSTEERINGPOWER = 2f;
 
@@ -28,8 +29,16 @@ public class WheelSteeringLogic : MonoBehaviour
 
     void FixedUpdate()
     {
-       // float wheelSpin = transform.localRotation.x;
-    //    Debug.Log(wheelSpin);
+        if (m_ActivePlayer)
+        {
+            m_steer = Input.GetAxis("Horizontal") * m_steeringPower;
+        }
+        //Add AI steering Control
+        else
+        { 
+            m_steer = 0; 
+        }
+
         if (m_sphereRB.velocity.magnitude > 0)
         {
             wheelSpin += m_sphereRB.velocity.magnitude*2f;
@@ -40,7 +49,6 @@ public class WheelSteeringLogic : MonoBehaviour
         }
         // Debug.Log(wheelSpin);
 
-        m_steer = Input.GetAxis("Horizontal")* m_steeringPower;
         if (m_ReverseRotation)
         {
             m_steer *= -1;
@@ -55,7 +63,7 @@ public class WheelSteeringLogic : MonoBehaviour
             math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
             transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
         }
-
+        
     }
     
 }

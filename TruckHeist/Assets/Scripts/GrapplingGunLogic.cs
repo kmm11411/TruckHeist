@@ -55,4 +55,6 @@ public class GrapplingGunLogic : MonoBehaviour
         m_GrapplingPlayer.transform.localRotation = Quaternion.Euler( new Vector3(m_LookVerticalAngle, m_LookHorizontalAngle, 0));
 
     }
+
+
 }

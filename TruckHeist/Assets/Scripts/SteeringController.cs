@@ -25,7 +25,7 @@ public class SteeringController : MonoBehaviour
     private float steeringAdjustment = 1f;
     private bool m_drivingReverse;
     public float m_adjustmentYOffset = .25f;
-
+    public bool m_ActivePlayer = false;
     public float MAXSTEERINGPOWER = 2f;
 
     void Awake()
@@ -39,8 +39,17 @@ public class SteeringController : MonoBehaviour
     void FixedUpdate()
     {
         m_drivingReverse = m_sphereController.m_reverse;
-        
-        m_steer = Input.GetAxis("Horizontal")* m_steeringPower;
+
+        if (m_ActivePlayer)
+        {
+            m_steer = Input.GetAxis("Horizontal") * m_steeringPower;
+        }
+        //Add AI steering Control
+        else
+        {
+            m_steer = 0;
+        }
+
         transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
 
         m_velocityMagnitude = m_sphereRB.velocity.magnitude;

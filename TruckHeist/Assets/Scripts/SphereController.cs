@@ -13,7 +13,7 @@ public class SphereController : MonoBehaviour
     public GameObject m_vehicle;
     public Transform m_Steering;
     public bool m_reverse = false;
-
+    public bool m_ActivePlayer = false;
     public bool m_breaking = false;
 
     // Start is called before the first frame update
@@ -25,9 +25,19 @@ public class SphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_acceleration = Input.GetAxis("Vertical") * ACCELERATION;
-        
-        m_breaking = Input.GetKey(KeyCode.Space);
+        if (m_ActivePlayer)
+        {
+            m_acceleration = Input.GetAxis("Vertical") * ACCELERATION;
+
+            m_breaking = Input.GetKey(KeyCode.Space);
+        }
+        //add AI control
+        else
+        {
+            m_acceleration = 0;
+
+            m_breaking = false;
+        }
 
         if (m_acceleration > .1f)
         {
@@ -63,7 +73,5 @@ public class SphereController : MonoBehaviour
         }
         m_rigidbody.AddForce(m_force);
 
-        //m_Steering.rotation = Quaternion.Euler(new Vector3(0,0,0));
-        //m_vehicle.transform.position = transform.position;
     }
 }
