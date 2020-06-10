@@ -34,9 +34,12 @@ public class SphereController : MonoBehaviour
         //add AI control
         else
         {
-            m_acceleration = 0;
+            if(this.tag == "Truck") {
+                m_acceleration = 0.4f * ACCELERATION;
 
-            m_breaking = false;
+                m_breaking = false;
+            }
+            
         }
 
         if (m_acceleration > .1f)

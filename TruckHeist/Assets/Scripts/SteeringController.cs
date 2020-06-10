@@ -28,16 +28,25 @@ public class SteeringController : MonoBehaviour
     public bool m_ActivePlayer = false;
     public float MAXSTEERINGPOWER = 2f;
 
+    GameObject[] m_players;
+    GameObject m_truck;
+
+    bool m_truckChasing = false;
+
     void Awake()
     {
         // m_rigidbody = GetComponent<Rigidbody>();
         m_sphereTransform = m_sphere.transform;
         m_sphereController = m_sphere.GetComponent<SphereController>();
         m_sphereRB = m_sphere.GetComponent<Rigidbody>();
+        m_players = GameObject.FindGameObjectsWithTag("Player");
+        m_truck = GameObject.FindGameObjectWithTag("Truck");
     }
 
     void FixedUpdate()
     {
+        //Debug.Log(this.tag);
+
         m_drivingReverse = m_sphereController.m_reverse;
 
         if (m_ActivePlayer)
@@ -47,7 +56,32 @@ public class SteeringController : MonoBehaviour
         //Add AI steering Control
         else
         {
-            m_steer = 0;
+            //m_steer = 0;
+            if(this.tag == "Player") {
+                //Add Player AI
+                float proximityRadius = 30f;
+                float distance = Vector3.Distance(m_truck.transform.position, transform.position);
+
+                if(distance > proximityRadius) {
+                    //Drive at truck
+                }
+
+            } else if(this.tag == "Truck") {
+                // float aggroRadius = 200f;
+
+                // foreach(GameObject m_player in m_players) {
+                //     float distance = Vector3.Distance(m_player.transform.position, transform.position);
+
+                //     if(distance < aggroRadius && m_player.GetComponent<SteeringController>().m_ActivePlayer) {
+                //         //Drive at player
+                //         transform.rotation = math.slerp(m_player.transform.rotation, m_wheelTransform.rotation, distance * .1f);
+                //         m_truckChasing = true;
+                //     }
+                // }
+                // if(!m_truckChasing) {
+
+                // }
+            }
         }
 
         transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
