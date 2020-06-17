@@ -32,6 +32,7 @@ public class WheelSteeringLogic : MonoBehaviour
         if (m_ActivePlayer)
         {
             m_steer = Input.GetAxis("Horizontal") * m_steeringPower;
+            RayCastTerrain();
         }
         //Add AI steering Control
         else
@@ -64,6 +65,21 @@ public class WheelSteeringLogic : MonoBehaviour
             transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
         }
         
+    }
+
+    void RayCastTerrain() {
+        LayerMask layerMask = LayerMask.GetMask("Ground");
+        Ray ray = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit, layerMask)) {
+            string hitTag = hit.collider.gameObject.tag;
+            //Debug.Log("RayCast to Ground:" + hitTag);
+            if(hitTag == "Offroad") {
+                Debug.Log("Here");
+                Debug.Log(this.tag + "went offroad");
+            }
+        }
     }
     
 }

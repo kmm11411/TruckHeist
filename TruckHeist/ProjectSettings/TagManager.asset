@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Truck
   - Car
+  - Road
+  - Offroad
+  - LeftWheel
+  - RightWheel
   layers:
   - Default
   - TransparentFX
@@ -17,7 +21,7 @@ TagManager:
   - 
   - GrapplingHookCollider
   - Road
-  - 
+  - Ground
   - 
   - 
   - 
