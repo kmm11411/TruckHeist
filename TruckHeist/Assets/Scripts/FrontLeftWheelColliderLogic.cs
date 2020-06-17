@@ -11,9 +11,13 @@ public class FrontLeftWheelColliderLogic : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("FrontLeftWheelCollider: " + other.tag);
+        Debug.Log("OnTriggerEnter. FrontLeftWheelCollider: ");
         if(other.tag != "Road") {
 
         }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        Debug.Log("OnCollisionEnter. FrontLeftWheelCollider: " + other.collider.gameObject.layer);
     }
 }
