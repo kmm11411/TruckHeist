@@ -30,9 +30,9 @@ public class TruckAILogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Truck is chasing: " + m_chasing);
-        Debug.Log("Player index: " + m_index);
-        Debug.Log("Players Length: " + m_players.Length);
+        //Debug.Log("Truck is chasing: " + m_chasing);
+        //Debug.Log("Player index: " + m_index);
+        //Debug.Log("Players Length: " + m_players.Length);
 
         if (m_chasing) {
             float distance = Vector3.Distance(m_players[m_index].transform.position, transform.position);
