@@ -8,8 +8,12 @@ TagManager:
   - Car
   - Road
   - Offroad
+  - TruckLeftWheel
+  - TruckRightWheel
   - LeftWheel
   - RightWheel
+  - Trailer
+  - SemiTruck
   layers:
   - Default
   - TransparentFX

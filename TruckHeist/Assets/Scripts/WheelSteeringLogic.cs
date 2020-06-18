@@ -19,12 +19,17 @@ public class WheelSteeringLogic : MonoBehaviour
     public bool m_ActivePlayer = false;
 
     private float MAXSTEERINGPOWER = 2f;
+    
+    public bool m_wheelOffroad = false;
+    
+    TruckAILogic m_truckAILogic;
 
     void Awake()
     {
         // m_rigidbody = GetComponent<Rigidbody>();
         m_sphereTransform = m_sphere.transform;
         m_sphereRB = m_sphere.GetComponent<Rigidbody>();
+        m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
     }
 
     void FixedUpdate()
@@ -32,12 +37,20 @@ public class WheelSteeringLogic : MonoBehaviour
         if (m_ActivePlayer)
         {
             m_steer = Input.GetAxis("Horizontal") * m_steeringPower;
-            RayCastTerrain();
-        }
-        //Add AI steering Control
-        else
-        { 
-            m_steer = 0; 
+        } else { 
+            if(this.tag == "Player") {
+                //Add Car AI Steering Control
+            } else if(this.tag == "TruckLeftWheel" || this.tag == "TruckRightWheel") {
+                //Check if on road or offroad. If offroad, steer back on road
+                if(m_truckAILogic.m_truckLeftWheelOffroad) {
+                    m_steer = 0.5f * m_steeringPower;
+                } else if (m_truckAILogic.m_truckRightWheelOffroad) {
+                    m_steer = -0.5f * m_steeringPower;
+                } else {
+                    //Add logic to shift when on the road
+                    m_steer = 0;
+                }
+            }
         }
 
         if (m_sphereRB.velocity.magnitude > 0)
@@ -66,20 +79,4 @@ public class WheelSteeringLogic : MonoBehaviour
         }
         
     }
-
-    void RayCastTerrain() {
-        LayerMask layerMask = LayerMask.GetMask("Ground");
-        Ray ray = new Ray(transform.position, Vector3.down);
-        RaycastHit hit;
-
-        if(Physics.Raycast(ray, out hit, layerMask)) {
-            string hitTag = hit.collider.gameObject.tag;
-            //Debug.Log("RayCast to Ground:" + hitTag);
-            if(hitTag == "Offroad") {
-                Debug.Log("Here");
-                Debug.Log(this.tag + "went offroad");
-            }
-        }
-    }
-    
 }
