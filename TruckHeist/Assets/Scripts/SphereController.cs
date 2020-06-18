@@ -34,12 +34,13 @@ public class SphereController : MonoBehaviour
         //add AI control
         else
         {
-            if(this.tag == "Truck") {
-                m_acceleration = 0.4f * ACCELERATION;
+            if (this.tag == "PlayerSphere") {
+                //Add Player AI Logic
+            } else if(this.tag == "TruckSphere") {
+                m_acceleration = 1.0f * ACCELERATION;
 
                 m_breaking = false;
             }
-            
         }
 
         if (m_acceleration > .1f)

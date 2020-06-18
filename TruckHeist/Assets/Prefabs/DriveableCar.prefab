@@ -87,7 +87,7 @@ MonoBehaviour:
   m_BindingMode: 5
   m_FollowOffset: {x: 0, y: 2, z: -5}
   m_XDamping: 1
-  m_YDamping: 1
+  m_YDamping: 1.1
   m_ZDamping: 0.5
   m_AngularDampingMode: 0
   m_PitchDamping: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_steeringPower: 40
   m_ReverseRotation: 1
   m_ActivePlayer: 0
+  m_wheelOffroad: 0
 --- !u!1 &1983547225
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,8 +168,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983547225}
-  m_LocalRotation: {x: -0.110743806, y: -0.84762937, z: 0.15434945, w: -0.49541554}
-  m_LocalPosition: {x: -8.614286, y: 6.460608, z: 4.934167}
+  m_LocalRotation: {x: -0.053216476, y: 0.9422736, z: -0.18146525, w: -0.2763312}
+  m_LocalPosition: {x: 3.64157, y: 5.1867704, z: 5.674811}
   m_LocalScale: {x: 1.9854662, y: 1.9854662, z: 1.9854662}
   m_Children:
   - {fileID: 527267873}
@@ -191,7 +192,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 12
+  m_Priority: 9
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 7122842335431853057}
   m_Follow: {fileID: 7122842335431853057}
@@ -488,7 +489,7 @@ Transform:
   m_GameObject: {fileID: 7122842336431186519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.50366, y: 0.50366, z: 0.50366}
+  m_LocalScale: {x: 0.7415387, y: 0.7415387, z: 0.7415387}
   m_Children:
   - {fileID: 7641337498698202731}
   - {fileID: 7122842335431853057}
@@ -512,6 +513,7 @@ MonoBehaviour:
   m_SphereController: {fileID: 7122842335431853056}
   m_WheelSteeringLogicRight: {fileID: 150369516324250517}
   m_WheelSteeringLogicLeft: {fileID: 150452609088147941}
+  m_WheelSteeringReverse: {fileID: 0}
   m_CMVirtualCamera: {fileID: 1983547226}
 --- !u!114 &82718705
 MonoBehaviour:
@@ -653,11 +655,21 @@ PrefabInstance:
       propertyPath: m_sphere
       value: 
       objectReference: {fileID: 7122842335431853058}
+    - target: {fileID: 637398389513573737, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_ActivePlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 637476964120913689, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_sphere
       value: 
       objectReference: {fileID: 7122842335431853058}
+    - target: {fileID: 637476964120913689, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_ActivePlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_sphere
@@ -677,6 +689,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_adjustmentYOffset
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_ActivePlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 638098355948222886, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 638098355948222886, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3283944186160195016, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
@@ -772,6 +799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiniCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975352222161282339, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_TagString
+      value: Car
       objectReference: {fileID: 0}
     - target: {fileID: 6975364362074670015, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
@@ -916,6 +948,11 @@ PrefabInstance:
       propertyPath: m_Steering
       value: 
       objectReference: {fileID: 7641293151912524317}
+    - target: {fileID: 5122164767026134756, guid: dbf6ccf9b64c5dd4b92b97969cf6c9f2,
+        type: 3}
+      propertyPath: m_ActivePlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5122164767026134757, guid: dbf6ccf9b64c5dd4b92b97969cf6c9f2,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -14,6 +14,9 @@ TagManager:
   - RightWheel
   - Trailer
   - SemiTruck
+  - TruckSphere
+  - FollowSpaceRight
+  - FollowSpaceLeft
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,8 @@ public class TruckAILogic : MonoBehaviour
     public bool m_truckOffroad = false;
     public bool m_truckLeftWheelOffroad = false;
     public bool m_truckRightWheelOffroad = false;
+    public bool m_carOnRight = false;
+    public bool m_carOnLeft = false;
 
     GameObject[] m_players;
 
@@ -21,6 +23,7 @@ public class TruckAILogic : MonoBehaviour
     Transform m_truckLeftWheel;
     [SerializeField]
     Transform m_truckRightWheel;
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +44,16 @@ public class TruckAILogic : MonoBehaviour
         //Debug.Log("Player index: " + m_index);
         //Debug.Log("Players Length: " + m_players.Length);
         CheckChasing();
-        m_truckLeftWheelOffroad = CheckOffRoad(m_truckLeftWheel.position);
-        m_truckRightWheelOffroad = CheckOffRoad(m_truckRightWheel.position);
+
+        if(!m_truckRightWheelOffroad) {
+            m_truckLeftWheelOffroad = CheckOffRoad(m_truckLeftWheel.position);
+        }
+
+        if(!m_truckLeftWheelOffroad) {
+            m_truckRightWheelOffroad = CheckOffRoad(m_truckRightWheel.position);
+        }
+        
+        
         
     }
 
