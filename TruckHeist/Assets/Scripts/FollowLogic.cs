@@ -23,7 +23,6 @@ public class FollowLogic : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("OnTriggerEnter: " + other.tag);
         if(other.tag == "Car1" && m_steeringControllerCar1.m_ActivePlayer) {
             if(this.tag == "FollowSpaceLeft") {
                 m_truckAILogic.m_carOnLeft = true;

@@ -21,6 +21,9 @@ TagManager:
   - Car2Sphere
   - Car1
   - Car2
+  - CarWheel
+  - Car1Wheel
+  - Car2Wheel
   layers:
   - Default
   - TransparentFX

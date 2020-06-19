@@ -23,6 +23,8 @@ public class WheelSteeringLogic : MonoBehaviour
     public bool m_wheelOffroad = false;
     
     TruckAILogic m_truckAILogic;
+    CarAILogic m_car1AILogic;
+    CarAILogic m_car2AILogic;
 
     void Awake()
     {
@@ -30,6 +32,8 @@ public class WheelSteeringLogic : MonoBehaviour
         m_sphereTransform = m_sphere.transform;
         m_sphereRB = m_sphere.GetComponent<Rigidbody>();
         m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
+        m_car1AILogic = GameObject.FindGameObjectWithTag("Car1").GetComponent<CarAILogic>();
+        m_car2AILogic = GameObject.FindGameObjectWithTag("Car2").GetComponent<CarAILogic>();
     }
 
     void FixedUpdate()
@@ -38,8 +42,24 @@ public class WheelSteeringLogic : MonoBehaviour
         {
             m_steer = Input.GetAxis("Horizontal") * m_steeringPower;
         } else { 
-            if(this.tag == "Player") {
-                //Add Car AI Steering Control
+            if(this.tag == "Car1Wheel") {
+                if(m_car1AILogic.m_carLeftWheelOffroad) {
+                    m_steer = 0.5f * m_steeringPower;
+                } else if (m_car1AILogic.m_carRightWheelOffroad) {
+                    m_steer = -0.5f * m_steeringPower;
+                } else {
+                    //Add logic for on road
+                    m_steer = 0;
+                }
+            } else if(this.tag == "Car2Wheel") {
+                if(m_car2AILogic.m_carLeftWheelOffroad) {
+                    m_steer = 0.5f * m_steeringPower;
+                } else if (m_car2AILogic.m_carRightWheelOffroad) {
+                    m_steer = -0.5f * m_steeringPower;
+                } else {
+                    //Add logic for on road
+                    m_steer = 0;
+                }
             } else if(this.tag == "TruckLeftWheel" || this.tag == "TruckRightWheel") {
                 //Check if on road or offroad. If offroad, steer back on road
                 if(m_truckAILogic.m_truckLeftWheelOffroad) {
