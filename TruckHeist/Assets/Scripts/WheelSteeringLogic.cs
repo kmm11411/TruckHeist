@@ -29,7 +29,7 @@ public class WheelSteeringLogic : MonoBehaviour
         // m_rigidbody = GetComponent<Rigidbody>();
         m_sphereTransform = m_sphere.transform;
         m_sphereRB = m_sphere.GetComponent<Rigidbody>();
-        m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
+        //m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
     }
 
     void FixedUpdate()

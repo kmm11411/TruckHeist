@@ -318,6 +318,7 @@ MonoBehaviour:
   m_steeringPower: 40
   m_ReverseRotation: 1
   m_ActivePlayer: 0
+  m_wheelOffroad: 0
 --- !u!1 &236699069455861230
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +361,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236699069455861230}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f32bc0203b87dbe42be3d4599ff28435, type: 3}
   m_Name: 
@@ -369,7 +370,7 @@ MonoBehaviour:
   m_SphereController: {fileID: 236699070594759468}
   m_WheelSteeringLogicRight: {fileID: 236699069206651513}
   m_WheelSteeringLogicLeft: {fileID: 236699070145751994}
-  m_WheelSteeringReverse: {fileID: 0}
+  m_WheelSteeringReverse: {fileID: 236699068834886286}
   m_CMVirtualCamera: {fileID: 236699069949442958}
 --- !u!1 &236699069949442953
 GameObject:
@@ -387,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &236699069949442959
 Transform:
   m_ObjectHideFlags: 0
@@ -410,7 +411,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236699069949442953}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -1317,6 +1318,7 @@ MonoBehaviour:
   m_steeringPower: 40
   m_ReverseRotation: 0
   m_ActivePlayer: 0
+  m_wheelOffroad: 0
 --- !u!1 &237359724770040533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,12 +3693,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237758822500602228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b3bb48a8c5b875479cec6e66b511889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_chasing: 0
+  m_truckOffroad: 0
+  m_truckLeftWheelOffroad: 0
+  m_truckRightWheelOffroad: 0
+  m_carOnRight: 0
+  m_carOnLeft: 0
+  m_truckLeftWheel: {fileID: 0}
+  m_truckRightWheel: {fileID: 0}
 --- !u!1 &237759217680112185
 GameObject:
   m_ObjectHideFlags: 0
@@ -6669,6 +6678,7 @@ MonoBehaviour:
   m_steeringPower: 40
   m_ReverseRotation: 0
   m_ActivePlayer: 0
+  m_wheelOffroad: 0
 --- !u!1 &238061370547614598
 GameObject:
   m_ObjectHideFlags: 0
