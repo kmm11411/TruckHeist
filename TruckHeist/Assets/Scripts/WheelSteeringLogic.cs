@@ -41,7 +41,6 @@ public class WheelSteeringLogic : MonoBehaviour
             if(this.tag == "Player") {
                 //Add Car AI Steering Control
             } else if(this.tag == "TruckLeftWheel" || this.tag == "TruckRightWheel") {
-                Debug.Log("m_carOnRight: " + m_truckAILogic.m_carOnRight);
                 //Check if on road or offroad. If offroad, steer back on road
                 if(m_truckAILogic.m_truckLeftWheelOffroad) {
                     m_steer = 0.5f * m_steeringPower;
