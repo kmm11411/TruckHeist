@@ -17,6 +17,10 @@ TagManager:
   - TruckSphere
   - FollowSpaceRight
   - FollowSpaceLeft
+  - Car1Sphere
+  - Car2Sphere
+  - Car1
+  - Car2
   layers:
   - Default
   - TransparentFX
