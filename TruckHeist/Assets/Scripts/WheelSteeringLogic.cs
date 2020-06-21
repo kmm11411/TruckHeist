@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using Unity.Mathematics;
 using UnityEngine;
-using PathCreation;
 
 
 public class WheelSteeringLogic : MonoBehaviour
@@ -28,10 +27,9 @@ public class WheelSteeringLogic : MonoBehaviour
     CarAILogic m_car2AILogic;
 
     GameObject m_truckFollowObject;
-
-    // public PathCreator m_pathCreator;
-    // public EndOfPathInstruction m_end;
-    // float m_distTravelled;
+    GameObject m_truckFollowSpaceLeft;
+    GameObject m_truckFollowSpaceRight;
+    GameObject m_trailer;
 
     void Awake()
     {
@@ -42,6 +40,9 @@ public class WheelSteeringLogic : MonoBehaviour
         m_car1AILogic = GameObject.FindGameObjectWithTag("Car1").GetComponent<CarAILogic>();
         m_car2AILogic = GameObject.FindGameObjectWithTag("Car2").GetComponent<CarAILogic>();
         m_truckFollowObject = GameObject.FindGameObjectWithTag("TruckFollowObject");
+        m_truckFollowSpaceLeft = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
+        m_truckFollowSpaceRight = GameObject.FindGameObjectWithTag("FollowSpaceRight");
+        m_trailer = GameObject.FindGameObjectWithTag("Trailer");
     }
 
     void FixedUpdate()
@@ -68,45 +69,60 @@ public class WheelSteeringLogic : MonoBehaviour
             if(this.tag == "Car1Wheel") {
                 if(m_car1AILogic.m_carLeftWheelOffroad) {
                     m_steer = 0.5f * m_steeringPower;
+                    transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else if (m_car1AILogic.m_carRightWheelOffroad) {
                     m_steer = -0.5f * m_steeringPower;
+                    transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else {
-                    //Add logic for on road
-                    m_steer = 0;
-                    
+                    if(m_car2AILogic.m_directionToTruckFollowSpaceLeft < m_car2AILogic.m_directionToTruckFollowSpaceRight) {
+                        transform.LookAt(m_truckFollowSpaceLeft.transform);
+                    } else if (m_car2AILogic.m_directionToTruckFollowSpaceLeft > m_car2AILogic.m_directionToTruckFollowSpaceRight) {
+                        transform.LookAt(m_truckFollowSpaceRight.transform);
+                    } else {
+                        transform.LookAt(m_trailer.transform);
+                    }
                 }
             } else if(this.tag == "Car2Wheel") {
                 if(m_car2AILogic.m_carLeftWheelOffroad) {
                     m_steer = 0.5f * m_steeringPower;
+                    transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else if (m_car2AILogic.m_carRightWheelOffroad) {
                     m_steer = -0.5f * m_steeringPower;
+                    transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else {
-                    //Add logic for on road
-                    //m_steer = 0;
-                    m_steer = 0;
+                    if(m_car2AILogic.m_directionToTruckFollowSpaceLeft < m_car2AILogic.m_directionToTruckFollowSpaceRight) {
+                        Debug.Log("Truck FollowSpaceLeft is closer.");
+                        transform.LookAt(m_truckFollowSpaceLeft.transform);
+                    } else if (m_car2AILogic.m_directionToTruckFollowSpaceLeft > m_car2AILogic.m_directionToTruckFollowSpaceRight) {
+                        Debug.Log("Truck FollowSpaceRight is closer.");
+                        transform.LookAt(m_truckFollowSpaceRight.transform);
+                    } else {
+                        Debug.Log("Distance is the same. Following Trailer.");
+                        transform.LookAt(m_trailer.transform);
+                    }
                 }
-
             } else if(this.tag == "TruckLeftWheel" || this.tag == "TruckRightWheel") {
                 //Check if on road or offroad. If offroad, steer back on road
                 if(m_truckAILogic.m_truckLeftWheelOffroad) {
                     m_steer = 0.5f * m_steeringPower;
+                    transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else if (m_truckAILogic.m_truckRightWheelOffroad) {
                     m_steer = -0.5f * m_steeringPower;
+                    transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else {
-                    //Add logic to shift when on the road
                     if(m_truckAILogic.m_carOnLeft) {
                         m_steer = -0.3f * m_steeringPower;
+                        transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                     } else if (m_truckAILogic.m_carOnRight) {
                         m_steer = 0.3f * m_steeringPower;
+                        transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                     } else {
-                        //Debug.Log("Closest Time On Path: " + m_pathCreator.path.GetClosestTimeOnPath(transform.position));
-                        
                         if(m_truckAILogic.m_distanceFromFollowObject > 0) {
-                            Debug.Log("Distance is greater than 0: " + m_truckAILogic.m_distanceFromFollowObject);
                             transform.LookAt(m_truckFollowObject.transform);
                         } else {
-                            Debug.Log("Distance is less than or equal to 0: " + m_truckAILogic.m_distanceFromFollowObject);
                             m_steer = 0;
+                            math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+                            transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
                         }
                     }
                 }
@@ -121,7 +137,6 @@ public class WheelSteeringLogic : MonoBehaviour
         {
             wheelSpin = wheelSpin % 360;
         }
-        // Debug.Log(wheelSpin);
 
         // if (m_ReverseRotation)
         // {

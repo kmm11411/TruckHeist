@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowLogic : MonoBehaviour
+public class AttackSpaceLogic : MonoBehaviour
 {
     TruckAILogic m_truckAILogic;
     SteeringController m_steeringControllerCar1;

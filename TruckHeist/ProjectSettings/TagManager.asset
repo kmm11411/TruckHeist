@@ -25,6 +25,10 @@ TagManager:
   - Car1Wheel
   - Car2Wheel
   - TruckFollowObject
+  - Car1FollowObject
+  - Car2FollowObject
+  - AttackSpaceLeft
+  - AttackSpaceRight
   layers:
   - Default
   - TransparentFX

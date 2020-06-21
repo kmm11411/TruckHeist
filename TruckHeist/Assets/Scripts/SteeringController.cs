@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using Unity.Mathematics;
 using UnityEngine;
-using PathCreation;
 
 
 public class SteeringController : MonoBehaviour
@@ -34,10 +33,6 @@ public class SteeringController : MonoBehaviour
 
     bool m_truckChasing = false;
 
-    // public PathCreator m_pathCreator;
-    // public EndOfPathInstruction m_end;
-    // float m_distTravelled;
-
     void Awake()
     {
         // m_rigidbody = GetComponent<Rigidbody>();
@@ -50,8 +45,6 @@ public class SteeringController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Debug.Log(this.tag);
-
         m_drivingReverse = m_sphereController.m_reverse;
         m_velocityMagnitude = m_sphereRB.velocity.magnitude;
 
@@ -84,35 +77,15 @@ public class SteeringController : MonoBehaviour
                     transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
                 }
             }
-        }
-        //Add AI steering Control
-        else
+        } else
         {
             //m_steer = 0;
-            if(this.tag == "Player") {
-                //Add Player AI
-                float proximityRadius = 30f;
-                float distance = Vector3.Distance(m_truck.transform.position, transform.position);
-
-                if(distance > proximityRadius) {
-                    //Drive at truck
-                }
-
-            } else if(this.tag == "Truck") {
-                //m_distTravelled += m_velocityMagnitude * Time.deltaTime;
-                //transform.position = m_pathCreator.path.GetPointAtDistance(m_distTravelled, m_end);
-                //transform.rotation = m_pathCreator.path.GetRotationAtDistance(m_distTravelled, m_end);
-                //transform.position = Vector3.MoveTowards(transform.position, m_pathCreator.path.GetClosestPointOnPath(transform.position), m_distTravelled);
-                //Debug.Log("Closest Point: " + m_pathCreator.path.GetClosestPointOnPath(transform.position));
-
+            if(this.tag == "Car1" || this.tag == "Car2") {
                 transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
                 transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
-
-                //transform.position = m_pathCreator.path.GetClosestPointOnPath(transform.position);
-                //transform.rotation = math.slerp(m_pathCreator.path.GetClosestPointOnPath(transform.position).x, m_pathCreator.path.GetClosestPointOnPath(transform.position).y, m_pathCreator.path.GetClosestPointOnPath(transform.position).z); 
-                
-                //transform.position = m_pathCreator.path.GetPointAtTime(m_pathCreator.path.GetClosestTimeOnPath(transform.position), m_end);
-                //transform.rotation = m_pathCreator.path.GetRotationAtDistance(m_pathCreator.path.GetClosestTimeOnPath(transform.position), m_end);
+            } else if(this.tag == "Truck") {
+                transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
+                transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
                 // float aggroRadius = 200f;
 
                 // foreach(GameObject m_player in m_players) {
@@ -129,35 +102,5 @@ public class SteeringController : MonoBehaviour
                 // }
             }
         }
-
-        //transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
-
-        // m_velocityMagnitude = m_sphereRB.velocity.magnitude;
-
-        // if (m_drivingReverse)
-        // {
-        //     if (m_velocityMagnitude < 5f)
-        //     {
-        //         steeringAdjustment = m_velocityMagnitude / 5f;
-        //         transform.rotation = math.slerp(transform.rotation, m_wheelTransformReverse.rotation, m_steeringPower * steeringAdjustment * .1f);
-        //     }
-        //     else
-        //     {
-        //         transform.rotation = math.slerp(transform.rotation, m_wheelTransformReverse.rotation, m_steeringPower * .1f);
-        //     }
-        // }
-        // else
-        // {
-        //     if (m_velocityMagnitude < 5f)
-        //     {
-        //         steeringAdjustment = m_velocityMagnitude / 5f;
-        //         transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * steeringAdjustment * .1f);
-        //     }
-        //     else
-        //     {
-        //         transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
-        //     }
-        // }
     }
-    
 }

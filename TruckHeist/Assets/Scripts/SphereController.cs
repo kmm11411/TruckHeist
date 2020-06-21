@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PathCreation;
 
 public class SphereController : MonoBehaviour
 {
@@ -22,12 +21,6 @@ public class SphereController : MonoBehaviour
     TruckAILogic m_truckAILogic;
     CarAILogic m_car1AILogic;
     CarAILogic m_car2AILogic;
-
-    // public PathCreator m_pathCreator;
-    // public EndOfPathInstruction m_end;
-    // float m_distTravelled;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -51,21 +44,19 @@ public class SphereController : MonoBehaviour
         else
         {
             if (this.tag == "Car1Sphere") {
-                //Add Player AI Logic
                 float dist = m_car1AILogic.m_distanceToTruck;
                 m_acceleration = m_car1AILogic.m_lastAcceleration;
-                Debug.Log("Distance: " + dist);
                 if (dist > 15f) {
                     m_acceleration -= 15f;
                 } else if (dist < -40f) {
                     m_acceleration += 5f;
                 } else {
-                    if(Mathf.Abs(dist) < Mathf.Abs(m_car1AILogic.m_lastDist)) {
-                        m_acceleration -= 5f;
-                    } else if (Mathf.Abs(dist) > Mathf.Abs(m_car1AILogic.m_lastDist)) {
-                        m_acceleration += 10f;
+                    if(Mathf.Abs(dist) < Mathf.Abs(m_car2AILogic.m_lastDist)) {
+                        m_acceleration -= 15f;
+                    } else if (Mathf.Abs(dist) > Mathf.Abs(m_car2AILogic.m_lastDist)) {
+                        m_acceleration += 16f;
                     } else {
-                        m_acceleration = m_car1AILogic.m_lastAcceleration;
+                        m_acceleration = m_car2AILogic.m_lastAcceleration;
                     }
                 }
 
@@ -74,24 +65,23 @@ public class SphereController : MonoBehaviour
 
                 m_breaking = false;
             } else if (this.tag == "Car2Sphere") {
-                //Add Player AI Logic
-                //m_acceleration = m_car2AILogic.m_lastAcceleration;
                 float dist = m_car2AILogic.m_distanceToTruck;
                 m_acceleration = m_car2AILogic.m_lastAcceleration;
-                if (dist > 15f) {
-                    m_acceleration -= 15f;
-                } else if (dist < -40f) {
-                    m_acceleration += 5f;
+                Debug.Log("Distance to Truck: " + dist);
+                if (dist > 25f) {
+                    m_acceleration += 10f;
+                } else if (dist < -10f) {
+                    m_acceleration -= 10f;
                 } else {
                     if(Mathf.Abs(dist) < Mathf.Abs(m_car2AILogic.m_lastDist)) {
-                        m_acceleration -= 10f;
+                        m_acceleration -= 15f;
                     } else if (Mathf.Abs(dist) > Mathf.Abs(m_car2AILogic.m_lastDist)) {
-                        m_acceleration += 10f;
+                        m_acceleration += 16f;
                     } else {
                         m_acceleration = m_car2AILogic.m_lastAcceleration;
                     }
                 }
-
+                Debug.Log("Acceleration: " + m_acceleration);
                 m_car2AILogic.m_lastAcceleration = m_acceleration;
                 m_car2AILogic.m_lastDist = dist;
 
@@ -99,7 +89,6 @@ public class SphereController : MonoBehaviour
             } else if(this.tag == "TruckSphere") {
                 m_acceleration = 1.0f * ACCELERATION;
                 m_breaking = false;
-                //Debug.Log("Truck Acceleration: " + m_acceleration);
             }
         }
 

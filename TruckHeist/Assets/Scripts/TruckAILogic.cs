@@ -27,6 +27,7 @@ public class TruckAILogic : MonoBehaviour
     GameObject m_truckFollowObject;
     
     public float m_distanceFromFollowObject;
+    public float m_directionFromFollowObject;
 
 
     // Start is called before the first frame update
@@ -53,7 +54,8 @@ public class TruckAILogic : MonoBehaviour
             m_truckRightWheelOffroad = CheckOffRoad(m_truckRightWheel.position);
         }
 
-        m_distanceFromFollowObject = CheckDistanceFromFollowObject();
+        //m_distanceFromFollowObject = CheckDistanceFromFollowObject();
+        m_distanceFromFollowObject = CheckDirectionFromFollowObject();
     }
 
     void CheckChasing() {
@@ -92,10 +94,15 @@ public class TruckAILogic : MonoBehaviour
         return false;
     }
 
-    float CheckDistanceFromFollowObject() {
-        var heading = transform.position - m_truckFollowObject.transform.position;
-        float dist = Vector3.Dot(heading, m_truckFollowObject.transform.forward);
+    float CheckDirectionFromFollowObject() {
+        var heading = m_truckFollowObject.transform.position - transform.position;
+        float dist = Vector3.Dot(heading, transform.forward);
         return dist;
+    }
+
+    float CheckDistanceFromFollowObject() {
+        float distance = Vector3.Distance(m_truckFollowObject.transform.position, transform.position);
+        return distance;
     }
 
 }
