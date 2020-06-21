@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using Unity.Mathematics;
 using UnityEngine;
+using PathCreation;
 
 
 public class WheelSteeringLogic : MonoBehaviour
@@ -26,6 +27,12 @@ public class WheelSteeringLogic : MonoBehaviour
     CarAILogic m_car1AILogic;
     CarAILogic m_car2AILogic;
 
+    GameObject m_truckFollowObject;
+
+    // public PathCreator m_pathCreator;
+    // public EndOfPathInstruction m_end;
+    // float m_distTravelled;
+
     void Awake()
     {
         // m_rigidbody = GetComponent<Rigidbody>();
@@ -34,6 +41,7 @@ public class WheelSteeringLogic : MonoBehaviour
         m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
         m_car1AILogic = GameObject.FindGameObjectWithTag("Car1").GetComponent<CarAILogic>();
         m_car2AILogic = GameObject.FindGameObjectWithTag("Car2").GetComponent<CarAILogic>();
+        m_truckFollowObject = GameObject.FindGameObjectWithTag("TruckFollowObject");
     }
 
     void FixedUpdate()
@@ -41,6 +49,21 @@ public class WheelSteeringLogic : MonoBehaviour
         if (m_ActivePlayer)
         {
             m_steer = Input.GetAxis("Horizontal") * m_steeringPower;
+
+            if (m_ReverseRotation)
+            {
+                m_steer *= -1;
+            }
+
+            if(m_steer!=0)
+            {
+                transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
+            }
+            else
+            {
+                math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+                transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
+            }
         } else { 
             if(this.tag == "Car1Wheel") {
                 if(m_car1AILogic.m_carLeftWheelOffroad) {
@@ -50,6 +73,7 @@ public class WheelSteeringLogic : MonoBehaviour
                 } else {
                     //Add logic for on road
                     m_steer = 0;
+                    
                 }
             } else if(this.tag == "Car2Wheel") {
                 if(m_car2AILogic.m_carLeftWheelOffroad) {
@@ -58,8 +82,10 @@ public class WheelSteeringLogic : MonoBehaviour
                     m_steer = -0.5f * m_steeringPower;
                 } else {
                     //Add logic for on road
+                    //m_steer = 0;
                     m_steer = 0;
                 }
+
             } else if(this.tag == "TruckLeftWheel" || this.tag == "TruckRightWheel") {
                 //Check if on road or offroad. If offroad, steer back on road
                 if(m_truckAILogic.m_truckLeftWheelOffroad) {
@@ -73,7 +99,15 @@ public class WheelSteeringLogic : MonoBehaviour
                     } else if (m_truckAILogic.m_carOnRight) {
                         m_steer = 0.3f * m_steeringPower;
                     } else {
-                        m_steer = 0;
+                        //Debug.Log("Closest Time On Path: " + m_pathCreator.path.GetClosestTimeOnPath(transform.position));
+                        
+                        if(m_truckAILogic.m_distanceFromFollowObject > 0) {
+                            Debug.Log("Distance is greater than 0: " + m_truckAILogic.m_distanceFromFollowObject);
+                            transform.LookAt(m_truckFollowObject.transform);
+                        } else {
+                            Debug.Log("Distance is less than or equal to 0: " + m_truckAILogic.m_distanceFromFollowObject);
+                            m_steer = 0;
+                        }
                     }
                 }
             }
@@ -89,20 +123,20 @@ public class WheelSteeringLogic : MonoBehaviour
         }
         // Debug.Log(wheelSpin);
 
-        if (m_ReverseRotation)
-        {
-            m_steer *= -1;
-        }
+        // if (m_ReverseRotation)
+        // {
+        //     m_steer *= -1;
+        // }
 
-        if(m_steer!=0)
-        {
-            transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
-        }
-        else
-        {
-            math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
-            transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
-        }
+        // if(m_steer!=0)
+        // {
+        //     transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
+        // }
+        // else
+        // {
+        //     math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+        //     transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
+        // }
         
     }
 }

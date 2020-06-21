@@ -52,6 +52,7 @@ public class CarAILogic : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit, layerMask)) {
             string hitTag = hit.collider.gameObject.tag;
+            
             if(hitTag == "Offroad") {
                 return true;
             } 

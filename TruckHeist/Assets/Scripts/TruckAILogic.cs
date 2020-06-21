@@ -24,18 +24,18 @@ public class TruckAILogic : MonoBehaviour
     [SerializeField]
     Transform m_truckRightWheel;
 
+    GameObject m_truckFollowObject;
+    
+    public float m_distanceFromFollowObject;
+
 
     // Start is called before the first frame update
     void Start()
     {
         m_players = GameObject.FindGameObjectsWithTag("Car");
         m_steeringController = GetComponentInChildren<SteeringController>();
+        m_truckFollowObject = GameObject.FindGameObjectWithTag("TruckFollowObject");
     }
-
-    // void OnDrawGizmos() {
-    //     Gizmos.color = new Color(1, 0, 0, 0.7f);
-    //     Gizmos.DrawSphere(transform.position, m_aggroRadius);
-    // }
 
     // Update is called once per frame
     void Update()
@@ -52,9 +52,8 @@ public class TruckAILogic : MonoBehaviour
         if(!m_truckLeftWheelOffroad) {
             m_truckRightWheelOffroad = CheckOffRoad(m_truckRightWheel.position);
         }
-        
-        
-        
+
+        m_distanceFromFollowObject = CheckDistanceFromFollowObject();
     }
 
     void CheckChasing() {
@@ -91,6 +90,12 @@ public class TruckAILogic : MonoBehaviour
             } 
         }
         return false;
+    }
+
+    float CheckDistanceFromFollowObject() {
+        var heading = transform.position - m_truckFollowObject.transform.position;
+        float dist = Vector3.Dot(heading, m_truckFollowObject.transform.forward);
+        return dist;
     }
 
 }

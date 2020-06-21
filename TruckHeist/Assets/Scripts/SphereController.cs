@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation;
 
 public class SphereController : MonoBehaviour
 {
 
-    float m_acceleration = 0f;
+    public float m_acceleration = 0f;
     public Vector3 m_force;
     public float ACCELERATION = 200f;
     Rigidbody m_rigidbody = null;
@@ -21,6 +22,10 @@ public class SphereController : MonoBehaviour
     TruckAILogic m_truckAILogic;
     CarAILogic m_car1AILogic;
     CarAILogic m_car2AILogic;
+
+    // public PathCreator m_pathCreator;
+    // public EndOfPathInstruction m_end;
+    // float m_distTravelled;
 
 
 
@@ -56,7 +61,7 @@ public class SphereController : MonoBehaviour
                     m_acceleration += 5f;
                 } else {
                     if(Mathf.Abs(dist) < Mathf.Abs(m_car1AILogic.m_lastDist)) {
-                        m_acceleration -= 10f;
+                        m_acceleration -= 5f;
                     } else if (Mathf.Abs(dist) > Mathf.Abs(m_car1AILogic.m_lastDist)) {
                         m_acceleration += 10f;
                     } else {
@@ -73,7 +78,6 @@ public class SphereController : MonoBehaviour
                 //m_acceleration = m_car2AILogic.m_lastAcceleration;
                 float dist = m_car2AILogic.m_distanceToTruck;
                 m_acceleration = m_car2AILogic.m_lastAcceleration;
-                Debug.Log("Distance: " + dist);
                 if (dist > 15f) {
                     m_acceleration -= 15f;
                 } else if (dist < -40f) {

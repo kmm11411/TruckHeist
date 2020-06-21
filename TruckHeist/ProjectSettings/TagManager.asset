@@ -24,6 +24,7 @@ TagManager:
   - CarWheel
   - Car1Wheel
   - Car2Wheel
+  - TruckFollowObject
   layers:
   - Default
   - TransparentFX
