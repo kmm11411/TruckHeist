@@ -74,9 +74,9 @@ public class WheelSteeringLogic : MonoBehaviour
                     m_steer = -0.5f * m_steeringPower;
                     transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else {
-                    if(m_car2AILogic.m_directionToTruckFollowSpaceLeft < m_car2AILogic.m_directionToTruckFollowSpaceRight) {
+                    if(m_car1AILogic.m_directionToTruckFollowSpaceLeft < m_car1AILogic.m_directionToTruckFollowSpaceRight) {
                         transform.LookAt(m_truckFollowSpaceLeft.transform);
-                    } else if (m_car2AILogic.m_directionToTruckFollowSpaceLeft > m_car2AILogic.m_directionToTruckFollowSpaceRight) {
+                    } else if (m_car1AILogic.m_directionToTruckFollowSpaceLeft > m_car1AILogic.m_directionToTruckFollowSpaceRight) {
                         transform.LookAt(m_truckFollowSpaceRight.transform);
                     } else {
                         transform.LookAt(m_trailer.transform);
@@ -91,13 +91,10 @@ public class WheelSteeringLogic : MonoBehaviour
                     transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else {
                     if(m_car2AILogic.m_directionToTruckFollowSpaceLeft < m_car2AILogic.m_directionToTruckFollowSpaceRight) {
-                        Debug.Log("Truck FollowSpaceLeft is closer.");
                         transform.LookAt(m_truckFollowSpaceLeft.transform);
                     } else if (m_car2AILogic.m_directionToTruckFollowSpaceLeft > m_car2AILogic.m_directionToTruckFollowSpaceRight) {
-                        Debug.Log("Truck FollowSpaceRight is closer.");
                         transform.LookAt(m_truckFollowSpaceRight.transform);
                     } else {
-                        Debug.Log("Distance is the same. Following Trailer.");
                         transform.LookAt(m_trailer.transform);
                     }
                 }

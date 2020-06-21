@@ -24,15 +24,15 @@ public class AttackSpaceLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "Car1" && m_steeringControllerCar1.m_ActivePlayer) {
-            if(this.tag == "FollowSpaceLeft") {
+            if(this.tag == "AttackSpaceLeft") {
                 m_truckAILogic.m_carOnLeft = true;
-            } else if (this.tag == "FollowSpaceRight") {
+            } else if (this.tag == "AttackSpaceRight") {
                 m_truckAILogic.m_carOnRight = true;
             }
         } else if(other.tag == "Car2" && m_steeringControllerCar2.m_ActivePlayer) {
-            if(this.tag == "FollowSpaceLeft") {
+            if(this.tag == "AttackSpaceLeft") {
                 m_truckAILogic.m_carOnLeft = true;
-            } else if (this.tag == "FollowSpaceRight") {
+            } else if (this.tag == "AttackSpaceRight") {
                 m_truckAILogic.m_carOnRight = true;
             }
         }
@@ -40,30 +40,30 @@ public class AttackSpaceLogic : MonoBehaviour
 
     private void OnTriggerExit(Collider other) {
         if(other.tag == "Car1" && m_steeringControllerCar1.m_ActivePlayer) {
-            if(this.tag == "FollowSpaceLeft") {
+            if(this.tag == "AttackSpaceLeft") {
                 m_truckAILogic.m_carOnLeft = false;
-            } else if (this.tag == "FollowSpaceRight") {
+            } else if (this.tag == "AttackSpaceRight") {
                 m_truckAILogic.m_carOnRight = false;
             }
         } else if(other.tag == "Car2" && m_steeringControllerCar2.m_ActivePlayer) {
-            if(this.tag == "FollowSpaceLeft") {
+            if(this.tag == "AttackSpaceLeft") {
                 m_truckAILogic.m_carOnLeft = false;
-            } else if (this.tag == "FollowSpaceRight") {
+            } else if (this.tag == "AttackSpaceRight") {
                 m_truckAILogic.m_carOnRight = false;
             }
         }
     }
     private void OnTriggerStay(Collider other) {
         if(other.tag == "Car1" && m_steeringControllerCar1.m_ActivePlayer) {
-            if(this.tag == "FollowSpaceLeft") {
+            if(this.tag == "AttackSpaceLeft") {
                 m_truckAILogic.m_carOnLeft = true;
-            } else if (this.tag == "FollowSpaceRight") {
+            } else if (this.tag == "AttackSpaceRight") {
                 m_truckAILogic.m_carOnRight = true;
             }
         } else if (other.tag == "Car1" && !m_steeringControllerCar1.m_ActivePlayer) {
-            if(this.tag == "FollowSpaceLeft") {
+            if(this.tag == "AttackSpaceLeft") {
                 m_truckAILogic.m_carOnLeft = false;
-            } else if (this.tag == "FollowSpaceRight") {
+            } else if (this.tag == "AttackSpaceRight") {
                 m_truckAILogic.m_carOnRight = false;
             }
         }

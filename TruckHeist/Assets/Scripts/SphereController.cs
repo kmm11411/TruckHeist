@@ -46,20 +46,21 @@ public class SphereController : MonoBehaviour
             if (this.tag == "Car1Sphere") {
                 float dist = m_car1AILogic.m_distanceToTruck;
                 m_acceleration = m_car1AILogic.m_lastAcceleration;
+                Debug.Log("Distance to Truck: " + dist);
                 if (dist > 15f) {
                     m_acceleration -= 15f;
                 } else if (dist < -40f) {
                     m_acceleration += 5f;
                 } else {
-                    if(Mathf.Abs(dist) < Mathf.Abs(m_car2AILogic.m_lastDist)) {
+                    if(Mathf.Abs(dist) < Mathf.Abs(m_car1AILogic.m_lastDist)) {
                         m_acceleration -= 15f;
-                    } else if (Mathf.Abs(dist) > Mathf.Abs(m_car2AILogic.m_lastDist)) {
+                    } else if (Mathf.Abs(dist) > Mathf.Abs(m_car1AILogic.m_lastDist)) {
                         m_acceleration += 16f;
                     } else {
-                        m_acceleration = m_car2AILogic.m_lastAcceleration;
+                        m_acceleration = m_car1AILogic.m_lastAcceleration;
                     }
                 }
-
+                Debug.Log("Acceleration: " + m_acceleration);
                 m_car1AILogic.m_lastAcceleration = m_acceleration;
                 m_car1AILogic.m_lastDist = dist;
 
@@ -67,7 +68,6 @@ public class SphereController : MonoBehaviour
             } else if (this.tag == "Car2Sphere") {
                 float dist = m_car2AILogic.m_distanceToTruck;
                 m_acceleration = m_car2AILogic.m_lastAcceleration;
-                Debug.Log("Distance to Truck: " + dist);
                 if (dist > 25f) {
                     m_acceleration += 10f;
                 } else if (dist < -10f) {
@@ -81,7 +81,7 @@ public class SphereController : MonoBehaviour
                         m_acceleration = m_car2AILogic.m_lastAcceleration;
                     }
                 }
-                Debug.Log("Acceleration: " + m_acceleration);
+
                 m_car2AILogic.m_lastAcceleration = m_acceleration;
                 m_car2AILogic.m_lastDist = dist;
 

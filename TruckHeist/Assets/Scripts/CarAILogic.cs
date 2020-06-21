@@ -22,8 +22,6 @@ public class CarAILogic : MonoBehaviour
 
     GameObject m_truckFollowSpaceLeft;
     GameObject m_truckFollowSpaceRight;
-    GameObject m_car1FollowObject;
-    GameObject m_car2FollowObject;
     
     Vector3 m_heading;
     float m_dist;
@@ -37,8 +35,6 @@ public class CarAILogic : MonoBehaviour
     void Start()
     {
         m_truck = GameObject.FindGameObjectWithTag("Truck");
-        //m_car1FollowObject = GameObject.FindGameObjectWithTag("Car1FollowObject");
-        //m_car2FollowObject = GameObject.FindGameObjectWithTag("Car2FollowObject");
         m_truckFollowSpaceLeft = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
         m_truckFollowSpaceRight = GameObject.FindGameObjectWithTag("FollowSpaceRight");
     }
