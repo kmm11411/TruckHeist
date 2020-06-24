@@ -74,11 +74,31 @@ public class WheelSteeringLogic : MonoBehaviour
                     m_steer = -0.5f * m_steeringPower;
                     transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else {
-                    if(m_car1AILogic.m_directionToTruckFollowSpaceLeft < m_car1AILogic.m_directionToTruckFollowSpaceRight) {
-                        transform.LookAt(m_truckFollowSpaceLeft.transform);
+                    //Debug.Log("Checking Direction to FollowSpaceLeft: " + m_car1AILogic.m_directionToTruckFollowSpaceLeft);
+                    //Debug.Log("Checking Direction to FollowSpaceRight: " + m_car1AILogic.m_directionToTruckFollowSpaceRight);
+                    if (m_car1AILogic.m_directionToTruckFollowSpaceLeft < 5 && m_car1AILogic.m_directionToTruckFollowSpaceRight < 5) {
+                        Debug.Log("Both are less than 5");
+                        m_steer = 0;
+                        math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+                        transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
+                    } else if(m_car1AILogic.m_directionToTruckFollowSpaceLeft < m_car1AILogic.m_directionToTruckFollowSpaceRight) {
+                        if(m_car1AILogic.m_directionToTruckFollowSpaceLeft < 6) {
+                            m_steer = 0;
+                            math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+                            transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
+                        } else {
+                            transform.LookAt(m_truckFollowSpaceLeft.transform);
+                        }
                     } else if (m_car1AILogic.m_directionToTruckFollowSpaceLeft > m_car1AILogic.m_directionToTruckFollowSpaceRight) {
-                        transform.LookAt(m_truckFollowSpaceRight.transform);
+                        if(m_car1AILogic.m_directionToTruckFollowSpaceRight < 6) {
+                            m_steer = 0;
+                            math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+                            transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
+                        } else {
+                            transform.LookAt(m_truckFollowSpaceRight.transform);
+                        }    
                     } else {
+                        Debug.Log("Chasing Trailer");
                         transform.LookAt(m_trailer.transform);
                     }
                 }
@@ -90,11 +110,28 @@ public class WheelSteeringLogic : MonoBehaviour
                     m_steer = -0.5f * m_steeringPower;
                     transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else {
-                    if(m_car2AILogic.m_directionToTruckFollowSpaceLeft < m_car2AILogic.m_directionToTruckFollowSpaceRight) {
-                        transform.LookAt(m_truckFollowSpaceLeft.transform);
+                    if (m_car2AILogic.m_directionToTruckFollowSpaceLeft < 5 && m_car2AILogic.m_directionToTruckFollowSpaceRight < 5) {
+                        m_steer = 0;
+                        math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+                        transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
+                    } else if(m_car2AILogic.m_directionToTruckFollowSpaceLeft < m_car2AILogic.m_directionToTruckFollowSpaceRight) {
+                        if(m_car2AILogic.m_directionToTruckFollowSpaceLeft < 6) {
+                            m_steer = 0;
+                            math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+                            transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
+                        } else {
+                            transform.LookAt(m_truckFollowSpaceLeft.transform);
+                        }
                     } else if (m_car2AILogic.m_directionToTruckFollowSpaceLeft > m_car2AILogic.m_directionToTruckFollowSpaceRight) {
-                        transform.LookAt(m_truckFollowSpaceRight.transform);
+                        if(m_car2AILogic.m_directionToTruckFollowSpaceRight < 6) {
+                            m_steer = 0;
+                            math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+                            transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
+                        } else {
+                            transform.LookAt(m_truckFollowSpaceRight.transform);
+                        }                        
                     } else {
+                        Debug.Log("Chasing Trailer");
                         transform.LookAt(m_trailer.transform);
                     }
                 }

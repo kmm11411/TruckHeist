@@ -38,7 +38,13 @@ public class SphereController : MonoBehaviour
         {
             m_acceleration = Input.GetAxis("Vertical") * ACCELERATION;
 
-            m_breaking = Input.GetKey(KeyCode.Space);   
+            m_breaking = Input.GetKey(KeyCode.Space);  
+
+            if (this.tag == "Car1Sphere") {
+                m_car1AILogic.m_lastAcceleration = m_acceleration;
+            } else if (this.tag == "Car2Sphere") {
+                m_car2AILogic.m_lastAcceleration = m_acceleration;
+            }
         }
         //add AI control
         else
@@ -46,16 +52,15 @@ public class SphereController : MonoBehaviour
             if (this.tag == "Car1Sphere") {
                 float dist = m_car1AILogic.m_distanceToTruck;
                 m_acceleration = m_car1AILogic.m_lastAcceleration;
-                Debug.Log("Distance to Truck: " + dist);
-                if (dist > 15f) {
+                if (dist > 30f) {
+                    m_acceleration += 15f;
+                } else if (dist < -20f) {
                     m_acceleration -= 15f;
-                } else if (dist < -40f) {
-                    m_acceleration += 5f;
                 } else {
-                    if(Mathf.Abs(dist) < Mathf.Abs(m_car1AILogic.m_lastDist)) {
-                        m_acceleration -= 15f;
-                    } else if (Mathf.Abs(dist) > Mathf.Abs(m_car1AILogic.m_lastDist)) {
-                        m_acceleration += 16f;
+                    if(dist < m_car1AILogic.m_lastDist) {
+                        m_acceleration -= 20f;
+                    } else if (dist > m_car1AILogic.m_lastDist) {
+                        m_acceleration += 20f;
                     } else {
                         m_acceleration = m_car1AILogic.m_lastAcceleration;
                     }
@@ -68,15 +73,15 @@ public class SphereController : MonoBehaviour
             } else if (this.tag == "Car2Sphere") {
                 float dist = m_car2AILogic.m_distanceToTruck;
                 m_acceleration = m_car2AILogic.m_lastAcceleration;
-                if (dist > 25f) {
-                    m_acceleration += 10f;
-                } else if (dist < -10f) {
-                    m_acceleration -= 10f;
+                if (dist > 30f) {
+                    m_acceleration += 15f;
+                } else if (dist < -20f) {
+                    m_acceleration -= 15f;
                 } else {
-                    if(Mathf.Abs(dist) < Mathf.Abs(m_car2AILogic.m_lastDist)) {
-                        m_acceleration -= 15f;
-                    } else if (Mathf.Abs(dist) > Mathf.Abs(m_car2AILogic.m_lastDist)) {
-                        m_acceleration += 16f;
+                    if(dist < m_car2AILogic.m_lastDist) {
+                        m_acceleration -= 25f;
+                    } else if (dist > m_car2AILogic.m_lastDist) {
+                        m_acceleration += 25f;
                     } else {
                         m_acceleration = m_car2AILogic.m_lastAcceleration;
                     }
