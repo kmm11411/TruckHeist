@@ -29,6 +29,9 @@ TagManager:
   - Car2FollowObject
   - AttackSpaceLeft
   - AttackSpaceRight
+  - Car3
+  - Car3Wheel
+  - Car3Sphere
   layers:
   - Default
   - TransparentFX

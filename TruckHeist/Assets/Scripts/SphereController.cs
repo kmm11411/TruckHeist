@@ -17,6 +17,10 @@ public class SphereController : MonoBehaviour
     public bool m_breaking = false;
     private float m_lastAcceleration;
     private float m_lastDistance;
+    private bool m_nosFull = false;
+
+    private float NOSCOOLDOWN = 10f;
+    private bool m_nosActive = false;
 
     TruckAILogic m_truckAILogic;
     CarAILogic m_car1AILogic;
@@ -128,7 +132,12 @@ public class SphereController : MonoBehaviour
 
         if (Mathf.Abs(m_acceleration) > .1)
         {
-            m_force = m_acceleration * m_Steering.forward;
+            if(!m_nosActive) {
+                m_force = m_acceleration * m_Steering.forward;
+            } else {
+                m_force = m_acceleration * m_Steering.forward;
+            }
+            
         }
         else
         {
