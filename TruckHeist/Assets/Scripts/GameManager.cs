@@ -35,8 +35,24 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.F))
         {
+            if (m_CarControllers[m_CarControllerIndex].m_GrapplingGun.activeSelf)
+            {
+                m_CarControllers[m_CarControllerIndex].DeactivateGrapplingGun();
+                m_CarControllers[m_CarControllerIndex].ActivateCarController();
+            }
+            else
+            {
+                m_CarControllers[m_CarControllerIndex].ActivateGrapplingGun();
+                m_CarControllers[m_CarControllerIndex].DeactivateCarController();
+            }
+        }
+            if (Input.GetKeyDown(KeyCode.R))
+        {
+            m_CarControllers[m_CarControllerIndex].DeactivateGrapplingGun();
+            m_CarControllers[m_CarControllerIndex].ActivateCarController();
+
             m_CarControllerIndex++;
             m_CarControllerIndex %= m_CarControllers.Count;
             for (int index = 0; index< m_CarControllers.Count; index++)
@@ -47,11 +63,11 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    if(index == 0) {
-                        m_car1AILogic.m_lastAcceleration = m_car1SphereController.m_acceleration;
-                    } else if (index == 1) {
-                        m_car2AILogic.m_lastAcceleration = m_car2SphereController.m_acceleration;
-                    }
+                    //if(index == 0) {
+                    //    m_car1AILogic.m_lastAcceleration = m_car1SphereController.m_acceleration;
+                    //} else if (index == 1) {
+                    //    m_car2AILogic.m_lastAcceleration = m_car2SphereController.m_acceleration;
+                    //}
 
                     m_CarControllers[index].DeactivateCarController();
                 }
@@ -59,6 +75,8 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
+            m_CarControllers[m_CarControllerIndex].DeactivateGrapplingGun();
+                m_CarControllers[m_CarControllerIndex].ActivateCarController();
             m_CarControllerIndex--;
             if (m_CarControllerIndex < 0)
             {
@@ -72,13 +90,14 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    if(index == 0) {
-                        m_car1AILogic.m_lastAcceleration = m_car1SphereController.m_acceleration;
-                    } else if (index == 1) {
-                        m_car2AILogic.m_lastAcceleration = m_car2SphereController.m_acceleration;
-                    }
-
+                    //if(index == 0) {
+                    //    m_car1AILogic.m_lastAcceleration = m_car1SphereController.m_acceleration;
+                    //} else if (index == 1) {
+                    //    m_car2AILogic.m_lastAcceleration = m_car2SphereController.m_acceleration;
+                    //}
                     m_CarControllers[index].DeactivateCarController();
+
+                    //m_CarControllers[index].DeactivateGrapplingGun();
                 }
             }
         }
