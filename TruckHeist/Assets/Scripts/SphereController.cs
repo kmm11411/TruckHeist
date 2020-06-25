@@ -25,6 +25,8 @@ public class SphereController : MonoBehaviour
     TruckAILogic m_truckAILogic;
     CarAILogic m_car1AILogic;
     CarAILogic m_car2AILogic;
+    CarAILogic m_car3AILogic;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class SphereController : MonoBehaviour
         m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
         m_car1AILogic = GameObject.FindGameObjectWithTag("Car1").GetComponent<CarAILogic>();
         m_car2AILogic = GameObject.FindGameObjectWithTag("Car2").GetComponent<CarAILogic>();
+        m_car3AILogic = GameObject.FindGameObjectWithTag("Car3").GetComponent<CarAILogic>();
     }
 
     // Update is called once per frame
@@ -48,6 +51,8 @@ public class SphereController : MonoBehaviour
                 m_car1AILogic.m_lastAcceleration = m_acceleration;
             } else if (this.tag == "Car2Sphere") {
                 m_car2AILogic.m_lastAcceleration = m_acceleration;
+            } else if (this.tag == "Car3Sphere") {
+                m_car3AILogic.m_lastAcceleration = m_acceleration;
             }
         }
         //add AI control
@@ -95,6 +100,27 @@ public class SphereController : MonoBehaviour
                 m_car2AILogic.m_lastDist = dist;
 
                 m_breaking = false;
+            } else if (this.tag == "Car3Sphere") {
+                float dist = m_car3AILogic.m_distanceToTruck;
+                m_acceleration = m_car3AILogic.m_lastAcceleration;
+                if (dist > 30f) {
+                    m_acceleration += 15f;
+                } else if (dist < -20f) {
+                    m_acceleration -= 15f;
+                } else {
+                    if(dist < m_car3AILogic.m_lastDist) {
+                        m_acceleration -= 25f;
+                    } else if (dist > m_car3AILogic.m_lastDist) {
+                        m_acceleration += 25f;
+                    } else {
+                        m_acceleration = m_car3AILogic.m_lastAcceleration;
+                    }
+                }
+
+                m_car3AILogic.m_lastAcceleration = m_acceleration;
+                m_car3AILogic.m_lastDist = dist;
+
+                m_breaking = false;
             } else if(this.tag == "TruckSphere") {
                 m_acceleration = 1.0f * ACCELERATION;
                 m_breaking = false;
@@ -102,7 +128,7 @@ public class SphereController : MonoBehaviour
         }
 
         //If offroad reduce acceleration
-        if((this.tag == "TruckSphere" && (m_truckAILogic.m_truckLeftWheelOffroad || m_truckAILogic.m_truckRightWheelOffroad)) || (this.tag == "Car1Sphere" && (m_car1AILogic.m_carLeftWheelOffroad || m_car1AILogic.m_carRightWheelOffroad)) || (this.tag == "Car2Sphere" && (m_car2AILogic.m_carLeftWheelOffroad || m_car2AILogic.m_carRightWheelOffroad))) {
+        if((this.tag == "TruckSphere" && (m_truckAILogic.m_truckLeftWheelOffroad || m_truckAILogic.m_truckRightWheelOffroad)) || (this.tag == "Car1Sphere" && (m_car1AILogic.m_carLeftWheelOffroad || m_car1AILogic.m_carRightWheelOffroad)) || (this.tag == "Car2Sphere" && (m_car2AILogic.m_carLeftWheelOffroad || m_car2AILogic.m_carRightWheelOffroad)) || (this.tag == "Car3Sphere" && (m_car3AILogic.m_carLeftWheelOffroad || m_car3AILogic.m_carRightWheelOffroad))) {
                 m_acceleration = m_acceleration / 2.0f;
         }
          
