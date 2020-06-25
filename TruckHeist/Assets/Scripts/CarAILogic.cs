@@ -42,6 +42,10 @@ public class CarAILogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(this.tag == "Car2") {
+            //Debug.Log("Last Acceleration: " + m_lastAcceleration);
+        }
+        
         m_distanceToTruck = CheckDistancetoTruck();
 
         if(!m_carRightWheelOffroad) {

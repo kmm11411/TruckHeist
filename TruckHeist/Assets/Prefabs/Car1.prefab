@@ -593,6 +593,10 @@ MonoBehaviour:
   m_lastDist: 0
   m_carLeftWheel: {fileID: 7551886982864924494}
   m_carRightWheel: {fileID: 7553486505995264802}
+  m_distanceToFollowObject: 0
+  m_directionToTruckFollowSpaceLeft: 0
+  m_directionToTruckFollowSpaceRight: 0
+  m_directionToTruck: 0
 --- !u!114 &204927355123637346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,7 +832,7 @@ PrefabInstance:
     - target: {fileID: 6975885721802488735, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_TagString
-      value: Car2Wheel
+      value: Car1Wheel
       objectReference: {fileID: 0}
     - target: {fileID: 6975997779594865157, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
