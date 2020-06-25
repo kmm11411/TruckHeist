@@ -16,16 +16,12 @@ public class PathFollowerLogic : MonoBehaviour
     float m_direction;
 
     GameObject m_truck;
-    GameObject m_car1;
-    GameObject m_car2;
 
 
     // Start is called before the first frame update
     void Start()
     {
         m_truck = GameObject.FindGameObjectWithTag("Truck");
-        m_car1 = GameObject.FindGameObjectWithTag("Car1");
-        m_car2 = GameObject.FindGameObjectWithTag("Car2");
     }
 
     // void OnDrawGizmos() {
@@ -41,17 +37,7 @@ public class PathFollowerLogic : MonoBehaviour
             m_distance = Vector3.Distance(m_truck.transform.position, transform.position);
             m_heading = transform.position - m_truck.transform.position;
             m_direction = Vector3.Dot(m_heading, transform.forward);
-        } //else if (this.tag == "Car1FollowObject") {
-        //     m_speed = 130f;
-        //     m_distance = Vector3.Distance(m_car1.transform.position, transform.position);
-        //     m_heading = transform.position - m_car1.transform.position;
-        //     m_direction = Vector3.Dot(m_heading, transform.forward);
-        // } else if (this.tag == "Car2FollowObject") {
-        //     m_speed = 130f;
-        //     m_distance = Vector3.Distance(m_car2.transform.position, transform.position);
-        //     m_heading = transform.position - m_car2.transform.position;
-        //     m_direction = Vector3.Dot(m_heading, transform.forward);
-        // }
+        }
 
         if(m_distance < m_followSpace) {
             m_distTravelled += m_speed * Time.deltaTime;

@@ -80,7 +80,7 @@ public class SteeringController : MonoBehaviour
         } else
         {
             //m_steer = 0;
-            if(this.tag == "Car1" || this.tag == "Car2") {
+            if(this.tag == "Car1" || this.tag == "Car2" || this.tag == "Car3") {
                 transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
                 transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
             } else if(this.tag == "Truck") {
