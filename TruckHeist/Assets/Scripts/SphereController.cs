@@ -56,14 +56,14 @@ public class SphereController : MonoBehaviour
                 float dist = m_carAILogic.m_distanceToTruck;
                 m_acceleration = m_carAILogic.m_lastAcceleration;
                 if (dist > 30f) {
-                    m_acceleration += 15f;
+                    m_acceleration += 250f;
                 } else if (dist < -20f) {
-                    m_acceleration -= 15f;
+                    m_acceleration -= 250f;
                 } else {
                     if(dist < m_carAILogic.m_lastDist) {
-                        m_acceleration -= 20f;
+                        m_acceleration -= 300f;
                     } else if (dist > m_carAILogic.m_lastDist) {
-                        m_acceleration += 20f;
+                        m_acceleration += 300f;
                     } else {
                         m_acceleration = m_carAILogic.m_lastAcceleration;
                     }

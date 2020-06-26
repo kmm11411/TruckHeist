@@ -9,16 +9,11 @@ public class GameManager : MonoBehaviour
 
     CarAILogic m_car1AILogic;
     CarAILogic m_car2AILogic;
-    SphereController m_car1SphereController;
-    SphereController m_car2SphereController;
 
     void Start()
     {
         m_car1AILogic = GameObject.FindGameObjectWithTag("Car1").GetComponent<CarAILogic>();
         m_car2AILogic = GameObject.FindGameObjectWithTag("Car2").GetComponent<CarAILogic>();
-
-        m_car1SphereController = GameObject.FindGameObjectWithTag("Car1Sphere").GetComponent<SphereController>();
-        m_car2SphereController = GameObject.FindGameObjectWithTag("Car2Sphere").GetComponent<SphereController>();
 
         for (int index = 0; index < m_CarControllers.Count; index++)
         {
@@ -63,12 +58,6 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    //if(index == 0) {
-                    //    m_car1AILogic.m_lastAcceleration = m_car1SphereController.m_acceleration;
-                    //} else if (index == 1) {
-                    //    m_car2AILogic.m_lastAcceleration = m_car2SphereController.m_acceleration;
-                    //}
-
                     m_CarControllers[index].DeactivateCarController();
                 }
             }
@@ -90,11 +79,6 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    //if(index == 0) {
-                    //    m_car1AILogic.m_lastAcceleration = m_car1SphereController.m_acceleration;
-                    //} else if (index == 1) {
-                    //    m_car2AILogic.m_lastAcceleration = m_car2SphereController.m_acceleration;
-                    //}
                     m_CarControllers[index].DeactivateCarController();
 
                     //m_CarControllers[index].DeactivateGrapplingGun();

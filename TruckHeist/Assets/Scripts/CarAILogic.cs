@@ -8,7 +8,7 @@ public class CarAILogic : MonoBehaviour
     public bool m_carLeftWheelOffroad = false;
     public bool m_carRightWheelOffroad = false;
     public float m_distanceToTruck;
-    public float m_lastAcceleration = 50f;
+    public float m_lastAcceleration = 57000f;
     public float m_lastDist = 0;
 
     GameObject m_truck;
