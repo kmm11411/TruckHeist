@@ -31,7 +31,8 @@ public class SteeringController : MonoBehaviour
     GameObject[] m_players;
     GameObject m_truck;
 
-    bool m_truckChasing = false;
+    [SerializeField]
+    CarAILogic m_carAILogic;
 
     void Awake()
     {
@@ -45,6 +46,10 @@ public class SteeringController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(this.tag != "Truck" && m_carAILogic.m_stuckToTruck) {
+            return;
+        }
+
         m_drivingReverse = m_sphereController.m_reverse;
         m_velocityMagnitude = m_sphereRB.velocity.magnitude;
 

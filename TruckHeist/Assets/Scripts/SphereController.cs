@@ -38,6 +38,10 @@ public class SphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(this.tag != "TruckSphere" && m_carAILogic.m_stuckToTruck) {
+            return;
+        }
+
         if (m_ActivePlayer)
         {
             m_acceleration = Input.GetAxis("Vertical") * ACCELERATION;

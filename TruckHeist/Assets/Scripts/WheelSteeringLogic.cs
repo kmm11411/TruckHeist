@@ -45,6 +45,10 @@ public class WheelSteeringLogic : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(this.tag != "Truck" && m_carAILogic.m_stuckToTruck) {
+            return;
+        }
+        
         if (m_ActivePlayer)
         {
             m_steer = Input.GetAxis("Horizontal") * m_steeringPower;

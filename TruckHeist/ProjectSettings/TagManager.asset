@@ -32,6 +32,8 @@ TagManager:
   - Car3
   - Car3Wheel
   - Car3Sphere
+  - GrapplingHook
+  - HitZone1
   layers:
   - Default
   - TransparentFX

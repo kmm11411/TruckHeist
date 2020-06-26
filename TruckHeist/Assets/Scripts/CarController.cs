@@ -16,17 +16,25 @@ public class CarController : MonoBehaviour
     public CinemachineVirtualCamera m_GrapplingGun_CMVirtualCamera;
     public CinemachineVirtualCamera m_CMVirtualCamera;
     public CarAILogic m_CarAILogic;
+    public GrapplingHookLogic m_GrapplingHookLogic;
+    public GameObject m_truck;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        InitializeCars();
+        m_GrapplingHookLogic = GetComponentInChildren<GrapplingHookLogic>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+       if(m_GrapplingHookLogic.m_hitTruck) {
+           transform.parent = m_truck.transform;
+           m_CarAILogic.m_stuckToTruck = true;
+       }
+
+       Debug.Log("Parent: " + transform.parent);
     }
 
 
@@ -65,5 +73,9 @@ public class CarController : MonoBehaviour
         
     }
 
-
+    private void InitializeCars() {
+        if(this.tag != "Truck") {
+            m_SphereController.m_acceleration = 57000f;
+        }
+    }
 }

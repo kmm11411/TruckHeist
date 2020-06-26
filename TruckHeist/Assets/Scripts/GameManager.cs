@@ -7,14 +7,8 @@ public class GameManager : MonoBehaviour
     public List<CarController> m_CarControllers;
     public int m_CarControllerIndex = 0;
 
-    CarAILogic m_car1AILogic;
-    CarAILogic m_car2AILogic;
-
     void Start()
     {
-        m_car1AILogic = GameObject.FindGameObjectWithTag("Car1").GetComponent<CarAILogic>();
-        m_car2AILogic = GameObject.FindGameObjectWithTag("Car2").GetComponent<CarAILogic>();
-
         for (int index = 0; index < m_CarControllers.Count; index++)
         {
             if (index == m_CarControllerIndex)
