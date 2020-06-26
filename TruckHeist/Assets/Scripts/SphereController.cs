@@ -17,15 +17,15 @@ public class SphereController : MonoBehaviour
     public bool m_breaking = false;
     private float m_lastAcceleration;
     private float m_lastDistance;
+    
     private bool m_nosFull = false;
-
     private float NOSCOOLDOWN = 10f;
     private bool m_nosActive = false;
 
     TruckAILogic m_truckAILogic;
-    CarAILogic m_car1AILogic;
-    CarAILogic m_car2AILogic;
-    CarAILogic m_car3AILogic;
+
+    [SerializeField]
+    public CarAILogic m_carAILogic;
 
 
     // Start is called before the first frame update
@@ -33,9 +33,6 @@ public class SphereController : MonoBehaviour
     {
         m_rigidbody = gameObject.GetComponent<Rigidbody>();
         m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
-        m_car1AILogic = GameObject.FindGameObjectWithTag("Car1").GetComponent<CarAILogic>();
-        m_car2AILogic = GameObject.FindGameObjectWithTag("Car2").GetComponent<CarAILogic>();
-        m_car3AILogic = GameObject.FindGameObjectWithTag("Car3").GetComponent<CarAILogic>();
     }
 
     // Update is called once per frame
@@ -47,88 +44,43 @@ public class SphereController : MonoBehaviour
 
             m_breaking = Input.GetKey(KeyCode.Space);  
 
-            if (this.tag == "Car1Sphere") {
-                m_car1AILogic.m_lastAcceleration = m_acceleration;
-            } else if (this.tag == "Car2Sphere") {
-                m_car2AILogic.m_lastAcceleration = m_acceleration;
-            } else if (this.tag == "Car3Sphere") {
-                m_car3AILogic.m_lastAcceleration = m_acceleration;
-            }
+            m_carAILogic.m_lastAcceleration = m_acceleration;
         }
         //add AI control
         else
         {
-            if (this.tag == "Car1Sphere") {
-                float dist = m_car1AILogic.m_distanceToTruck;
-                m_acceleration = m_car1AILogic.m_lastAcceleration;
+            if(this.tag == "TruckSphere") {
+                m_acceleration = 1.0f * ACCELERATION;
+                m_breaking = false;
+            } else {
+                float dist = m_carAILogic.m_distanceToTruck;
+                m_acceleration = m_carAILogic.m_lastAcceleration;
                 if (dist > 30f) {
                     m_acceleration += 15f;
                 } else if (dist < -20f) {
                     m_acceleration -= 15f;
                 } else {
-                    if(dist < m_car1AILogic.m_lastDist) {
+                    if(dist < m_carAILogic.m_lastDist) {
                         m_acceleration -= 20f;
-                    } else if (dist > m_car1AILogic.m_lastDist) {
+                    } else if (dist > m_carAILogic.m_lastDist) {
                         m_acceleration += 20f;
                     } else {
-                        m_acceleration = m_car1AILogic.m_lastAcceleration;
-                    }
-                }
-                Debug.Log("Acceleration: " + m_acceleration);
-                m_car1AILogic.m_lastAcceleration = m_acceleration;
-                m_car1AILogic.m_lastDist = dist;
-
-                m_breaking = false;
-            } else if (this.tag == "Car2Sphere") {
-                float dist = m_car2AILogic.m_distanceToTruck;
-                m_acceleration = m_car2AILogic.m_lastAcceleration;
-                if (dist > 30f) {
-                    m_acceleration += 15f;
-                } else if (dist < -20f) {
-                    m_acceleration -= 15f;
-                } else {
-                    if(dist < m_car2AILogic.m_lastDist) {
-                        m_acceleration -= 25f;
-                    } else if (dist > m_car2AILogic.m_lastDist) {
-                        m_acceleration += 25f;
-                    } else {
-                        m_acceleration = m_car2AILogic.m_lastAcceleration;
+                        m_acceleration = m_carAILogic.m_lastAcceleration;
                     }
                 }
 
-                m_car2AILogic.m_lastAcceleration = m_acceleration;
-                m_car2AILogic.m_lastDist = dist;
+                m_carAILogic.m_lastAcceleration = m_acceleration;
+                m_carAILogic.m_lastDist = dist;
 
-                m_breaking = false;
-            } else if (this.tag == "Car3Sphere") {
-                float dist = m_car3AILogic.m_distanceToTruck;
-                m_acceleration = m_car3AILogic.m_lastAcceleration;
-                if (dist > 30f) {
-                    m_acceleration += 15f;
-                } else if (dist < -20f) {
-                    m_acceleration -= 15f;
-                } else {
-                    if(dist < m_car3AILogic.m_lastDist) {
-                        m_acceleration -= 25f;
-                    } else if (dist > m_car3AILogic.m_lastDist) {
-                        m_acceleration += 25f;
-                    } else {
-                        m_acceleration = m_car3AILogic.m_lastAcceleration;
-                    }
-                }
-
-                m_car3AILogic.m_lastAcceleration = m_acceleration;
-                m_car3AILogic.m_lastDist = dist;
-
-                m_breaking = false;
-            } else if(this.tag == "TruckSphere") {
-                m_acceleration = 1.0f * ACCELERATION;
                 m_breaking = false;
             }
         }
 
-        //If offroad reduce acceleration
-        if((this.tag == "TruckSphere" && (m_truckAILogic.m_truckLeftWheelOffroad || m_truckAILogic.m_truckRightWheelOffroad)) || (this.tag == "Car1Sphere" && (m_car1AILogic.m_carLeftWheelOffroad || m_car1AILogic.m_carRightWheelOffroad)) || (this.tag == "Car2Sphere" && (m_car2AILogic.m_carLeftWheelOffroad || m_car2AILogic.m_carRightWheelOffroad)) || (this.tag == "Car3Sphere" && (m_car3AILogic.m_carLeftWheelOffroad || m_car3AILogic.m_carRightWheelOffroad))) {
+        if(this.tag == "TruckSphere") {
+            if(m_truckAILogic.m_truckLeftWheelOffroad || m_truckAILogic.m_truckRightWheelOffroad) {
+                m_acceleration = m_acceleration / 2.0f;
+            }
+        } else if (m_carAILogic.m_carLeftWheelOffroad || m_carAILogic.m_carRightWheelOffroad) {
                 m_acceleration = m_acceleration / 2.0f;
         }
          
