@@ -611,6 +611,7 @@ MonoBehaviour:
   m_ReverseRotation: 1
   m_ActivePlayer: 0
   m_wheelOffroad: 0
+  m_carAILogic: {fileID: 0}
 --- !u!1 &236699069455861230
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +664,11 @@ MonoBehaviour:
   m_WheelSteeringLogicRight: {fileID: 236699069206651513}
   m_WheelSteeringLogicLeft: {fileID: 236699070145751994}
   m_WheelSteeringReverse: {fileID: 236699068834886286}
+  m_GrapplingGunLogic: {fileID: 0}
+  m_GrapplingGun: {fileID: 0}
+  m_GrapplingGun_CMVirtualCamera: {fileID: 0}
   m_CMVirtualCamera: {fileID: 236699069949442958}
+  m_CarAILogic: {fileID: 0}
 --- !u!1 &236699069949442953
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +852,7 @@ MonoBehaviour:
   m_reverse: 0
   m_ActivePlayer: 0
   m_breaking: 0
+  m_carAILogic: {fileID: 0}
 --- !u!54 &236699070594759471
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1612,6 +1618,7 @@ MonoBehaviour:
   m_ReverseRotation: 0
   m_ActivePlayer: 0
   m_wheelOffroad: 0
+  m_carAILogic: {fileID: 0}
 --- !u!1 &237359724770040533
 GameObject:
   m_ObjectHideFlags: 0
@@ -6978,6 +6985,7 @@ MonoBehaviour:
   m_ReverseRotation: 0
   m_ActivePlayer: 0
   m_wheelOffroad: 0
+  m_carAILogic: {fileID: 0}
 --- !u!1 &238061370547614598
 GameObject:
   m_ObjectHideFlags: 0

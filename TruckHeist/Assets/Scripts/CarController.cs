@@ -55,13 +55,14 @@ public class CarController : MonoBehaviour
 
     public void DeactivateCarController()
     {
+        m_CarAILogic.m_lastAcceleration = m_SphereController.m_acceleration;
         m_SteeringController.m_ActivePlayer = false;
         m_SphereController.m_ActivePlayer = false;
         m_WheelSteeringLogicRight.m_ActivePlayer = false;
         m_WheelSteeringLogicLeft.m_ActivePlayer = false;
         m_WheelSteeringReverse.m_ActivePlayer = false;
         m_CMVirtualCamera.enabled = false;
-        m_CarAILogic.m_lastAcceleration = m_SphereController.m_acceleration;
+        
     }
 
 
