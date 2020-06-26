@@ -614,7 +614,7 @@ MonoBehaviour:
   m_sphere: {fileID: 347734919912925710}
   m_steer: 0
   m_SteeringTransform: {fileID: 865104220844986471}
-  m_steeringPower: 40
+  m_steeringPower: 20
   m_ReverseRotation: 1
   m_ActivePlayer: 0
   m_wheelOffroad: 0
@@ -1091,6 +1091,11 @@ PrefabInstance:
       propertyPath: m_carAILogic
       value: 
       objectReference: {fileID: 7352702864841623302}
+    - target: {fileID: 637398389513573737, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_steeringPower
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 637476964120913689, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_ActivePlayer
@@ -1106,6 +1111,11 @@ PrefabInstance:
       propertyPath: m_carAILogic
       value: 
       objectReference: {fileID: 7352702864841623302}
+    - target: {fileID: 637476964120913689, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_steeringPower
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_ActivePlayer
@@ -1129,7 +1139,7 @@ PrefabInstance:
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_adjustmentYOffset
-      value: 0.25
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}

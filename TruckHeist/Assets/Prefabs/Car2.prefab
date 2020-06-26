@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361763535657390439}
-  m_LocalRotation: {x: -0.01336362, y: 0.97956955, z: -0.18863505, w: -0.06842338}
+  m_LocalRotation: {x: -0.013363605, y: 0.97956955, z: -0.18863505, w: -0.068423264}
   m_LocalPosition: {x: 0.93687934, y: 5.1867704, z: 6.6773224}
   m_LocalScale: {x: 1.9854662, y: 1.9854662, z: 1.9854662}
   m_Children:
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_sphere: {fileID: 8087514838597456444}
   m_steer: 0
   m_SteeringTransform: {fileID: 8714059837371967573}
-  m_steeringPower: 40
+  m_steeringPower: 20
   m_ReverseRotation: 1
   m_ActivePlayer: 0
   m_wheelOffroad: 0
@@ -804,6 +804,11 @@ PrefabInstance:
       propertyPath: m_carAILogic
       value: 
       objectReference: {fileID: 1361763536862461748}
+    - target: {fileID: 637398389513573737, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_steeringPower
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 637476964120913689, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_ActivePlayer
@@ -819,6 +824,11 @@ PrefabInstance:
       propertyPath: m_carAILogic
       value: 
       objectReference: {fileID: 1361763536862461748}
+    - target: {fileID: 637476964120913689, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
+        type: 3}
+      propertyPath: m_steeringPower
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_ActivePlayer
@@ -842,7 +852,7 @@ PrefabInstance:
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_adjustmentYOffset
-      value: 0.25
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}

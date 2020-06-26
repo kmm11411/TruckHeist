@@ -13,7 +13,7 @@ public class WheelSteeringLogic : MonoBehaviour
     public GameObject m_sphere;
     public float m_steer;
     public Transform m_SteeringTransform;
-    public float m_steeringPower = 1f;
+    public float m_steeringPower = 0.6f;
     public bool m_ReverseRotation = false;
     float wheelSpin = 0f;
     public bool m_ActivePlayer = false;
