@@ -1199,7 +1199,7 @@ PrefabInstance:
     - target: {fileID: 6917923796268301161, guid: 05d518dde0c6a804caeef91836833f68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6917923796268301161, guid: 05d518dde0c6a804caeef91836833f68,
         type: 3}
@@ -2304,7 +2304,7 @@ PrefabInstance:
     - target: {fileID: 8087514837331145832, guid: 922a8ddb21108674bbe058aeb2d25d3a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8087514837331145832, guid: 922a8ddb21108674bbe058aeb2d25d3a,
         type: 3}
@@ -2333,6 +2333,18 @@ PrefabInstance:
       objectReference: {fileID: 385240887}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 922a8ddb21108674bbe058aeb2d25d3a, type: 3}
+--- !u!114 &879966485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 204927354000490800, guid: 05d518dde0c6a804caeef91836833f68,
+    type: 3}
+  m_PrefabInstance: {fileID: 426416988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a945f620a3fb3324696098a0bbf68947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &967092997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2383,7 +2395,7 @@ PrefabInstance:
     - target: {fileID: 347734920928889946, guid: d53c06dba2d7dde4191ee4dc3cdb55a6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 347734920928889946, guid: d53c06dba2d7dde4191ee4dc3cdb55a6,
         type: 3}
@@ -4112,6 +4124,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 236699068834886286, guid: 2f724c6018c6d564890beaa5133009e9,
+        type: 3}
+      propertyPath: m_carAILogic
+      value: 
+      objectReference: {fileID: 879966485}
+    - target: {fileID: 236699069206651513, guid: 2f724c6018c6d564890beaa5133009e9,
+        type: 3}
+      propertyPath: m_carAILogic
+      value: 
+      objectReference: {fileID: 879966485}
     - target: {fileID: 236699069455861230, guid: 2f724c6018c6d564890beaa5133009e9,
         type: 3}
       propertyPath: m_Name
@@ -4172,6 +4194,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 236699070145751994, guid: 2f724c6018c6d564890beaa5133009e9,
+        type: 3}
+      propertyPath: m_carAILogic
+      value: 
+      objectReference: {fileID: 879966485}
+    - target: {fileID: 236699070594759468, guid: 2f724c6018c6d564890beaa5133009e9,
+        type: 3}
+      propertyPath: m_carAILogic
+      value: 
+      objectReference: {fileID: 879966485}
     - target: {fileID: 6031347690449903624, guid: 2f724c6018c6d564890beaa5133009e9,
         type: 3}
       propertyPath: m_Mesh
