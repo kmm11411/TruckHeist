@@ -7,10 +7,12 @@ public class CarAILogic : MonoBehaviour
     public bool m_carOffroad = false;
     public bool m_carLeftWheelOffroad = false;
     public bool m_carRightWheelOffroad = false;
-    public float m_distanceToTruck;
+    public Vector3 m_distanceToTruck;
     public float m_lastAcceleration;
     public float m_lastDist = 0;
-    public bool m_stuckToTruck = false;
+    public bool m_hitTruckLeft = false;
+    public bool m_hitTruckRight = false;
+    public bool m_hitTruckFront = false;
 
     GameObject m_truck;
 
@@ -42,11 +44,7 @@ public class CarAILogic : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(this.tag == "Car2") {
-            //Debug.Log("Last Acceleration: " + m_lastAcceleration);
-        }
-        
+    {        
         m_distanceToTruck = CheckDistancetoTruck();
 
         if(!m_carRightWheelOffroad) {
@@ -63,10 +61,9 @@ public class CarAILogic : MonoBehaviour
         m_directionToTruckFollowSpaceRight = CheckDirectionToTruckFollowSpaceRight();
     }
 
-    float CheckDistancetoTruck() {
-        var heading = m_truck.transform.position - transform.position;
-        float dist = Vector3.Dot(heading, m_truck.transform.forward);
-        return dist;
+    public Vector3 CheckDistancetoTruck() {
+        Vector3 heading = m_truck.transform.position - transform.position;
+        return heading;
     }
 
     bool CheckOffRoad(Vector3 position) {

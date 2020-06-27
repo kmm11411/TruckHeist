@@ -18,10 +18,6 @@ public class SteeringController : MonoBehaviour
     public Transform m_wheelTransformReverse;
     public float m_steeringPower = 1f;
     public float m_velocityMagnitude = 0;
-    // public float m_steeringParked = 2f;
-    //    public float m_steeringDrift = 2f;
-    //  public float m_steeringDrift = 2f;
-    //  public float m_steeringDrift = 2f;
     private float steeringAdjustment = 1f;
     private bool m_drivingReverse;
     public float m_adjustmentYOffset = .25f;
@@ -46,7 +42,10 @@ public class SteeringController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(this.tag != "Truck" && m_carAILogic.m_stuckToTruck) {
+        if(this.tag != "Truck" && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
+            transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
+            transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
+            
             return;
         }
 
@@ -84,28 +83,8 @@ public class SteeringController : MonoBehaviour
             }
         } else
         {
-            //m_steer = 0;
-            if(this.tag == "Car1" || this.tag == "Car2" || this.tag == "Car3") {
-                transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
-                transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
-            } else if(this.tag == "Truck") {
-                transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
-                transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
-                // float aggroRadius = 200f;
-
-                // foreach(GameObject m_player in m_players) {
-                //     float distance = Vector3.Distance(m_player.transform.position, transform.position);
-
-                //     if(distance < aggroRadius && m_player.GetComponent<SteeringController>().m_ActivePlayer) {
-                //         //Drive at player
-                //         transform.rotation = math.slerp(m_player.transform.rotation, m_wheelTransform.rotation, distance * .1f);
-                //         m_truckChasing = true;
-                //     }
-                // }
-                // if(!m_truckChasing) {
-
-                // }
-            }
+            transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
+            transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
         }
     }
 }

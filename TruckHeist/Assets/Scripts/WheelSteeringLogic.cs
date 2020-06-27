@@ -32,6 +32,10 @@ public class WheelSteeringLogic : MonoBehaviour
     GameObject m_truckFollowSpaceRight;
     GameObject m_trailer;
 
+
+    GameObject m_grappleLeftFollowObject;
+    GameObject m_grappleRightFollowObject;
+
     void Awake()
     {
         m_sphereTransform = m_sphere.transform;
@@ -41,11 +45,29 @@ public class WheelSteeringLogic : MonoBehaviour
         m_truckFollowSpaceLeft = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
         m_truckFollowSpaceRight = GameObject.FindGameObjectWithTag("FollowSpaceRight");
         m_trailer = GameObject.FindGameObjectWithTag("Trailer");
+
+        m_grappleLeftFollowObject = GameObject.FindGameObjectWithTag("LeftGrappleFollowObject");
+        m_grappleRightFollowObject = GameObject.FindGameObjectWithTag("RightGrappleFollowObject");
     }
 
     void FixedUpdate()
     {
-        if(this.tag != "Truck" && m_carAILogic.m_stuckToTruck) {
+        if (m_sphereRB.velocity.magnitude > 0)
+        {
+            wheelSpin += m_sphereRB.velocity.magnitude*2f;
+        }
+        if (wheelSpin > 360)
+        {
+            wheelSpin = wheelSpin % 360;
+        } 
+
+        if(this.tag != "Truck" && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
+            if(m_carAILogic.m_hitTruckLeft) {
+                transform.LookAt(m_grappleLeftFollowObject.transform);
+            } else if(m_carAILogic.m_hitTruckRight) {
+                transform.LookAt(m_grappleRightFollowObject.transform);
+            }
+
             return;
         }
         
@@ -95,10 +117,10 @@ public class WheelSteeringLogic : MonoBehaviour
                 }
             }  else {
                 if(m_carAILogic.m_carLeftWheelOffroad) {
-                    m_steer = 0.5f * m_steeringPower;
+                    m_steer = 0.3f * m_steeringPower;
                     transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else if (m_carAILogic.m_carRightWheelOffroad) {
-                    m_steer = -0.5f * m_steeringPower;
+                    m_steer = -0.3f * m_steeringPower;
                     transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
                 } else {
                     if (m_carAILogic.m_directionToTruckFollowSpaceLeft < 5 && m_carAILogic.m_directionToTruckFollowSpaceRight < 5) {
@@ -126,15 +148,6 @@ public class WheelSteeringLogic : MonoBehaviour
                     }
                 }
             }
-        }
-
-        if (m_sphereRB.velocity.magnitude > 0)
-        {
-            wheelSpin += m_sphereRB.velocity.magnitude*2f;
-        }
-        if (wheelSpin > 360)
-        {
-            wheelSpin = wheelSpin % 360;
-        }       
+        }      
     }
 }

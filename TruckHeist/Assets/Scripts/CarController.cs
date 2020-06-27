@@ -18,23 +18,29 @@ public class CarController : MonoBehaviour
     public CarAILogic m_CarAILogic;
     public GrapplingHookLogic m_GrapplingHookLogic;
     public GameObject m_truck;
+    public GameObject m_grappleLeftFollowSphere;
+    public GameObject m_grappleRightFollowSphere;
 
     // Start is called before the first frame update
     void Start()
     {
         InitializeCars();
         m_GrapplingHookLogic = GetComponentInChildren<GrapplingHookLogic>();
+        m_grappleLeftFollowSphere = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
+        m_grappleRightFollowSphere = GameObject.FindGameObjectWithTag("FollowSpaceRight");
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(m_GrapplingHookLogic.m_hitTruck) {
+       if(m_CarAILogic.m_hitTruckFront || m_CarAILogic.m_hitTruckLeft || m_CarAILogic.m_hitTruckRight) {
            transform.parent = m_truck.transform;
-           m_CarAILogic.m_stuckToTruck = true;
+           if(m_CarAILogic.m_hitTruckLeft) {
+               MoveToGrapplePoint(m_grappleLeftFollowSphere.transform.position);
+           } else if (m_CarAILogic.m_hitTruckRight) {
+                MoveToGrapplePoint(m_grappleRightFollowSphere.transform.position);
+           }
        }
-
-       Debug.Log("Parent: " + transform.parent);
     }
 
 
@@ -77,5 +83,10 @@ public class CarController : MonoBehaviour
         if(this.tag != "Truck") {
             m_SphereController.m_acceleration = 57000f;
         }
+    }
+
+    private void MoveToGrapplePoint(Vector3 dest) {
+        Vector3 start = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        
     }
 }

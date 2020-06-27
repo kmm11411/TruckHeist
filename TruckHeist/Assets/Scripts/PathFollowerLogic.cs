@@ -9,19 +9,23 @@ public class PathFollowerLogic : MonoBehaviour
     public PathCreator m_pathCreator;
     public EndOfPathInstruction m_end;
     float m_distTravelled;
-    float m_followSpace = 30f;
+    float m_followSpace = 35f;
 
     float m_distance;
     Vector3 m_heading;
     float m_direction;
 
     GameObject m_truck;
+    public GameObject m_carLeftFollowObject;
+    public GameObject m_carRightFollowObject;
 
 
     // Start is called before the first frame update
     void Start()
     {
         m_truck = GameObject.FindGameObjectWithTag("Truck");
+        m_carLeftFollowObject.transform.localPosition = new Vector3(0f, -9.8f, 0f);
+        m_carRightFollowObject.transform.localPosition = new Vector3(0f, 9.8f, 0f);
     }
 
     // void OnDrawGizmos() {
@@ -32,12 +36,10 @@ public class PathFollowerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.tag == "TruckFollowObject") {
-            m_speed = 90f;
-            m_distance = Vector3.Distance(m_truck.transform.position, transform.position);
-            m_heading = transform.position - m_truck.transform.position;
-            m_direction = Vector3.Dot(m_heading, transform.forward);
-        }
+        m_speed = 150f;
+        m_distance = Vector3.Distance(m_truck.transform.position, transform.position);
+        m_heading = transform.position - m_truck.transform.position;
+        m_direction = Vector3.Dot(m_heading, transform.forward);
 
         if(m_distance < m_followSpace) {
             m_distTravelled += m_speed * Time.deltaTime;

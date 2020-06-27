@@ -38,7 +38,7 @@ public class SphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.tag != "TruckSphere" && m_carAILogic.m_stuckToTruck) {
+        if(this.tag != "TruckSphere" && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
             return;
         }
 
@@ -57,7 +57,7 @@ public class SphereController : MonoBehaviour
                 m_acceleration = 1.0f * ACCELERATION;
                 m_breaking = false;
             } else {
-                float dist = m_carAILogic.m_distanceToTruck;
+                float dist = m_carAILogic.m_directionToTruck;
                 m_acceleration = m_carAILogic.m_lastAcceleration;
                 if (dist > 30f) {
                     m_acceleration += 250f;

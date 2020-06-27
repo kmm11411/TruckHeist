@@ -39,7 +39,20 @@ public class GrapplingGunLogic : MonoBehaviour
             var forwardDirection = transform.forward;
             m_grapplingHookRigidBody.velocity = Vector3.zero;
             m_grapplingHookRigidBody.AddForce(forwardDirection * m_gunForce);
-        }
+        } //else if (Input.GetKeyDown(KeyCode.Space) && m_gunFired) {
+        //     m_gunFired = false;
+        //     m_grapplingHook.SetActive(false);
+        //     m_lineRenderer.enabled = false;
+        //     m_grapplingHookRigidBody = m_grapplingHook.GetComponent<Rigidbody>();
+        //     m_grapplingHookRigidBody.useGravity = false;
+        //     m_grapplingHook.transform.parent = transform.m_GrapplingPlayer;
+            
+        //     // m_grapplingHook.transform.position = m_grapplingHookSpawn.transform.position;
+        //     // m_grapplingHook.transform.rotation = m_grapplingHookSpawn.transform.rotation;
+        //     // var forwardDirection = transform.forward;
+        //     // m_grapplingHookRigidBody.velocity = Vector3.zero;
+        //     // m_grapplingHookRigidBody.AddForce(forwardDirection * m_gunForce);
+        // }
 
         if (m_gunFired)
         {

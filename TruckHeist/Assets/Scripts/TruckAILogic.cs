@@ -13,6 +13,9 @@ public class TruckAILogic : MonoBehaviour
     public bool m_truckRightWheelOffroad = false;
     public bool m_carOnRight = false;
     public bool m_carOnLeft = false;
+    public bool m_hitOnLeft = false;
+    public bool m_hitOnRight = false;
+    public bool m_hitOnFront = false;
 
     GameObject[] m_players;
 

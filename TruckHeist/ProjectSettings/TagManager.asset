@@ -34,6 +34,11 @@ TagManager:
   - Car3Sphere
   - GrapplingHook
   - HitZone1
+  - HitZoneLeft
+  - HitZoneRight
+  - HitZoneFront
+  - LeftGrappleFollowObject
+  - RightGrappleFollowObject
   layers:
   - Default
   - TransparentFX
