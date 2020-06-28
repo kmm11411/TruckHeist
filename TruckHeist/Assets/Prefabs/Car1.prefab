@@ -24,8 +24,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204927353462824550}
-  m_LocalRotation: {x: 0.0021045133, y: -0.972777, z: 0.23156503, w: 0.008840054}
-  m_LocalPosition: {x: 0.13062344, y: 6.117268, z: 4.3145866}
+  m_LocalRotation: {x: 0.0010795979, y: -0.9870651, z: 0.16017862, w: 0.006651691}
+  m_LocalPosition: {x: 0.080862045, y: 4.4896755, z: 3.1274529}
   m_LocalScale: {x: 1.9854662, y: 1.9854662, z: 1.9854662}
   m_Children:
   - {fileID: 204927354919608606}
@@ -96,7 +96,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7551415739036481724}
-  m_RootOrder: 26
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &204927353654496070
 MonoBehaviour:
@@ -203,10 +203,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2.69, z: -5.33}
+  m_FollowOffset: {x: 0, y: 2, z: -6}
   m_XDamping: 1
-  m_YDamping: 1.1
-  m_ZDamping: 0.5
+  m_YDamping: 0.5
+  m_ZDamping: 0.4
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -490,7 +490,7 @@ Transform:
   m_GameObject: {fileID: 6917923796268301160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 31.44, y: -1.4422, z: -37.338}
-  m_LocalScale: {x: 0.7415387, y: 0.7415387, z: 0.7415387}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7553512597276075860}
   - {fileID: 6917923797267160382}
@@ -522,6 +522,8 @@ MonoBehaviour:
   m_CarAILogic: {fileID: 204927354000490800}
   m_GrapplingHookLogic: {fileID: 6448697729812034754}
   m_truck: {fileID: 0}
+  m_grappleLeftFollowSphere: {fileID: 0}
+  m_grappleRightFollowSphere: {fileID: 0}
 --- !u!114 &204927354760148686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,10 +597,12 @@ MonoBehaviour:
   m_carOffroad: 0
   m_carLeftWheelOffroad: 0
   m_carRightWheelOffroad: 0
-  m_distanceToTruck: 0
+  m_distanceToTruck: {x: 0, y: 0, z: 0}
   m_lastAcceleration: 0
   m_lastDist: 0
-  m_stuckToTruck: 0
+  m_hitTruckLeft: 0
+  m_hitTruckRight: 0
+  m_hitTruckFront: 0
   m_carLeftWheel: {fileID: 7551886982864924494}
   m_carRightWheel: {fileID: 7553486505995264802}
   m_distanceToFollowObject: 0

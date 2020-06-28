@@ -20,7 +20,7 @@ public class SphereController : MonoBehaviour
     
     private bool m_nosFull = false;
     private float NOSCOOLDOWN = 10f;
-    private bool m_nosActive = false;
+    public bool m_nosActive = false;
 
     TruckAILogic m_truckAILogic;
 
@@ -46,7 +46,8 @@ public class SphereController : MonoBehaviour
         {
             m_acceleration = Input.GetAxis("Vertical") * ACCELERATION;
 
-            m_breaking = Input.GetKey(KeyCode.Space);  
+            m_breaking = Input.GetKey(KeyCode.Space);
+            m_nosActive = Input.GetKey(KeyCode.V);
 
             m_carAILogic.m_lastAcceleration = m_acceleration;
         }
@@ -107,6 +108,12 @@ public class SphereController : MonoBehaviour
         {
             m_acceleration *= .15f;
         }
+
+        if (m_nosActive)
+        {
+            m_acceleration *= 1.5f;
+        }
+
     }
 
     void FixedUpdate()
@@ -114,12 +121,7 @@ public class SphereController : MonoBehaviour
 
         if (Mathf.Abs(m_acceleration) > .1)
         {
-            if(!m_nosActive) {
-                m_force = m_acceleration * m_Steering.forward;
-            } else {
-                m_force = m_acceleration * m_Steering.forward;
-            }
-            
+            m_force = m_acceleration * m_Steering.forward;
         }
         else
         {
