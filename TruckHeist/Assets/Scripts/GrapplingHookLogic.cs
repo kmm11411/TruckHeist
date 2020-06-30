@@ -12,6 +12,10 @@ public class GrapplingHookLogic : MonoBehaviour
     CarAILogic m_carAILogic;
     PathFollowerLogic m_pathFollowerLogic;
 
+    GameObject m_hitZoneLeftGrapplingPoint;
+    GameObject m_hitZoneRightGrapplingPoint;
+    GameObject m_hitZoneFrontGrapplingPoint;
+
 
 
     // Start is called before the first frame update
@@ -21,6 +25,8 @@ public class GrapplingHookLogic : MonoBehaviour
         m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>();
         m_carAILogic = GetComponentInParent<CarAILogic>();
         m_pathFollowerLogic = GameObject.FindGameObjectWithTag("TruckFollowObject").GetComponent<PathFollowerLogic>();
+        m_hitZoneLeftGrapplingPoint = GameObject.FindGameObjectWithTag("HitZoneLeftGrapplingPoint");
+        m_hitZoneRightGrapplingPoint = GameObject.FindGameObjectWithTag("HitZoneRightGrapplingPoint");
     }
 
     // Update is called once per frame
@@ -35,21 +41,6 @@ public class GrapplingHookLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter: " + other.tag);
-        if(other.tag == "HitZoneLeft") {
-            m_carAILogic.m_hitTruckLeft = true;
-            m_truckAILogic.m_hitOnLeft = true;
-        } else if (other.tag == "HitZoneRight") {
-            m_carAILogic.m_hitTruckRight = true;
-            m_truckAILogic.m_hitOnRight = true;
-        } else if (other.tag == "HitZoneFront") {
-            m_carAILogic.m_hitTruckFront = true;
-            m_truckAILogic.m_hitOnFront = true;
-        } 
-        else {
-            m_hitTruck = false;
-        }
-
         transform.position -= m_RigidBody.velocity.normalized * 2f;
 
         Ray ray = new Ray(transform.position, m_RigidBody.velocity.normalized * 3f);
@@ -59,7 +50,21 @@ public class GrapplingHookLogic : MonoBehaviour
         {
             m_RigidBody.velocity = Vector3.zero;
             m_RigidBody.useGravity = false;
-            transform.position = rayHit.point;
+            if(other.tag == "HitZoneLeft" && !m_truckAILogic.m_hitOnLeft) {
+                m_carAILogic.m_hitTruckLeft = true;
+                m_truckAILogic.m_hitOnLeft = true;
+                transform.position = m_hitZoneLeftGrapplingPoint.transform.position;
+            } else if (other.tag == "HitZoneRight" && !m_truckAILogic.m_hitOnRight) {
+                m_carAILogic.m_hitTruckRight = true;
+                m_truckAILogic.m_hitOnRight = true;
+                transform.position = m_hitZoneRightGrapplingPoint.transform.position;
+            } else if (other.tag == "HitZoneFront" && !m_truckAILogic.m_hitOnFront) {
+                m_carAILogic.m_hitTruckFront = true;
+                m_truckAILogic.m_hitOnFront = true;
+                //transform.position = m_hitZoneFrontGrapplingPoint.transform.position;
+            } else {
+                transform.position = rayHit.point;
+            }
         }
         else
         {
@@ -71,6 +76,15 @@ public class GrapplingHookLogic : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
-        Debug.Log("OnTriggerExit: " + other.tag);
+        if(other.tag == "HitZoneLeft") {
+            m_carAILogic.m_hitTruckLeft = false;
+            m_truckAILogic.m_hitOnLeft = false;
+        } else if (other.tag == "HitZoneRight") {
+            m_carAILogic.m_hitTruckRight = false;
+            m_truckAILogic.m_hitOnRight = false;
+        } else if (other.tag == "HitZoneFront") {
+            m_carAILogic.m_hitTruckFront = false;
+            m_truckAILogic.m_hitOnFront = false;
+        }
     }
 }

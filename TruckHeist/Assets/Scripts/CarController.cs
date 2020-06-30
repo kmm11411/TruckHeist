@@ -19,14 +19,16 @@ public class CarController : MonoBehaviour
     public GrapplingHookLogic m_GrapplingHookLogic;
     public GameObject m_truck;
     public GameObject m_grappleLeftFollowSphere;
-    public GameObject m_grappleRightFollowSphere;
+    GameObject m_grappleRightFollowSphere;
+
+    private float fraction = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         InitializeCars();
         m_GrapplingHookLogic = GetComponentInChildren<GrapplingHookLogic>();
-        m_grappleLeftFollowSphere = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
+        //m_grappleLeftFollowSphere = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
         m_grappleRightFollowSphere = GameObject.FindGameObjectWithTag("FollowSpaceRight");
     }
 
@@ -34,12 +36,19 @@ public class CarController : MonoBehaviour
     void Update()
     {
        if(m_CarAILogic.m_hitTruckFront || m_CarAILogic.m_hitTruckLeft || m_CarAILogic.m_hitTruckRight) {
-           transform.parent = m_truck.transform;
-           if(m_CarAILogic.m_hitTruckLeft) {
-               MoveToGrapplePoint(m_grappleLeftFollowSphere.transform.position);
-           } else if (m_CarAILogic.m_hitTruckRight) {
-                MoveToGrapplePoint(m_grappleRightFollowSphere.transform.position);
-           }
+        //    if(fraction < 1) {
+        //         fraction += Time.deltaTime * 0.4f;
+        //         transform.position = Vector3.Lerp(transform.position, m_grappleLeftFollowSphere.transform.position, fraction);
+        //    }
+
+        transform.position = Vector3.MoveTowards(transform.position, m_grappleLeftFollowSphere.transform.position, 0.9f);
+           
+           //transform.parent = m_truck.transform;
+        //    if(m_CarAILogic.m_hitTruckLeft) {
+        //        MoveToGrapplePoint(m_grappleLeftFollowSphere.transform.position);
+        //    } else if (m_CarAILogic.m_hitTruckRight) {
+        //         MoveToGrapplePoint(m_grappleRightFollowSphere.transform.position);
+        //    }
        }
     }
 
@@ -86,7 +95,11 @@ public class CarController : MonoBehaviour
     }
 
     private void MoveToGrapplePoint(Vector3 dest) {
-        Vector3 start = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        
+        var heading = m_grappleLeftFollowSphere.transform.position - transform.position;
+        float dist = Vector3.Dot(heading, transform.forward);
+        Debug.Log("Distance to Object:" + dist);
+
+        //Vector3 start = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, m_grappleLeftFollowSphere.transform.position, 0.2f * Time.deltaTime);
     }
 }

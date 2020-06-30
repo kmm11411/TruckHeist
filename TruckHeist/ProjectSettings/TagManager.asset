@@ -39,6 +39,9 @@ TagManager:
   - HitZoneFront
   - LeftGrappleFollowObject
   - RightGrappleFollowObject
+  - HitZoneLeftGrapplingPoint
+  - HitZoneRightGrapplingPoint
+  - HitZoneFrontGrapplingPoint
   layers:
   - Default
   - TransparentFX

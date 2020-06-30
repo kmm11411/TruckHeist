@@ -39,6 +39,7 @@ public class SphereController : MonoBehaviour
     void Update()
     {
         if(this.tag != "TruckSphere" && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
+            m_acceleration = 0;
             return;
         }
 
@@ -55,7 +56,13 @@ public class SphereController : MonoBehaviour
         else
         {
             if(this.tag == "TruckSphere") {
-                m_acceleration = 1.0f * ACCELERATION;
+                if(!m_truckAILogic.m_hitOnLeft && !m_truckAILogic.m_hitOnRight && !m_truckAILogic.m_hitOnFront) {
+                   m_acceleration = 1.0f * ACCELERATION; 
+                } else if (m_truckAILogic.m_hitOnLeft || m_truckAILogic.m_hitOnRight) {
+                    m_acceleration = 0.8f * ACCELERATION;
+                } else if (m_truckAILogic.m_hitOnLeft && m_truckAILogic.m_hitOnRight) {
+                    m_acceleration = 0.5f * ACCELERATION;
+                } 
                 m_breaking = false;
             } else {
                 float dist = m_carAILogic.m_directionToTruck;

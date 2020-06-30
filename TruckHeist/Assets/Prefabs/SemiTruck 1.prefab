@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &707944987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707944988}
+  m_Layer: 0
+  m_Name: HitZoneRightGrapplingPoint
+  m_TagString: HitZoneRightGrapplingPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &707944988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707944987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.109, y: 1.553, z: 0.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 241309762962567324}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &986612746
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,8 +43,8 @@ GameObject:
   - component: {fileID: 986612749}
   - component: {fileID: 986612748}
   m_Layer: 0
-  m_Name: HitZone
-  m_TagString: HitZone1
+  m_Name: HitZoneLeft
+  m_TagString: HitZoneLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +57,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986612746}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -1.076, y: 1.1100001, z: 1.28}
-  m_LocalScale: {x: 0.17877905, y: 0.17877904, z: 0.13284892}
+  m_LocalPosition: {x: -1.076, y: 1.17, z: 1.238}
+  m_LocalScale: {x: 0.23799068, y: 0.23799065, z: 0.17684849}
   m_Children: []
   m_Father: {fileID: 241309762962567324}
   m_RootOrder: 8
@@ -122,7 +152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233667248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.72, y: 0.72, z: -2.02}
+  m_LocalPosition: {x: -2.72, y: 0.07, z: -2.02}
   m_LocalScale: {x: 3.332106, y: 1, z: 8.699665}
   m_Children: []
   m_Father: {fileID: 241309762962567324}
@@ -200,6 +230,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efdc60b13de0a34086b21cf0cb46c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1686297689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1686297690}
+  m_Layer: 0
+  m_Name: HitZoneLeftGrapplingPoint
+  m_TagString: HitZoneLeftGrapplingPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1686297690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686297689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.102, y: 1.553, z: 0.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 241309762962567324}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &17432861416176657
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,8 +273,8 @@ GameObject:
   - component: {fileID: 5561156720732218387}
   - component: {fileID: 8147647361443516480}
   m_Layer: 0
-  m_Name: HitZone (2)
-  m_TagString: HitZone1
+  m_Name: HitZoneFront
+  m_TagString: HitZoneFront
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,7 +288,7 @@ Transform:
   m_GameObject: {fileID: 17432861416176657}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.005, y: 1.11, z: 2.353}
-  m_LocalScale: {x: 0.17877905, y: 0.17877904, z: 0.13284892}
+  m_LocalScale: {x: 0.17877905, y: 0.2379906, z: 0.13284892}
   m_Children: []
   m_Father: {fileID: 241309762962567324}
   m_RootOrder: 10
@@ -673,6 +733,8 @@ MonoBehaviour:
   m_CarAILogic: {fileID: 0}
   m_GrapplingHookLogic: {fileID: 0}
   m_truck: {fileID: 0}
+  m_grappleLeftFollowSphere: {fileID: 0}
+  m_grappleRightFollowSphere: {fileID: 0}
 --- !u!1 &236699069949442953
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +918,7 @@ MonoBehaviour:
   m_reverse: 0
   m_ActivePlayer: 0
   m_breaking: 0
+  m_nosActive: 0
   m_carAILogic: {fileID: 0}
 --- !u!54 &236699070594759471
 Rigidbody:
@@ -3850,6 +3913,8 @@ Transform:
   - {fileID: 4803406338265795937}
   - {fileID: 2615993859969877929}
   - {fileID: 4391907486993319529}
+  - {fileID: 1686297690}
+  - {fileID: 707944988}
   m_Father: {fileID: 236699069455861231}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4016,6 +4081,9 @@ MonoBehaviour:
   m_truckRightWheelOffroad: 0
   m_carOnRight: 0
   m_carOnLeft: 0
+  m_hitOnLeft: 0
+  m_hitOnRight: 0
+  m_hitOnFront: 0
   m_truckLeftWheel: {fileID: 236377763585765604}
   m_truckRightWheel: {fileID: 241334870120082816}
   m_distanceFromFollowObject: 0
@@ -11108,8 +11176,8 @@ GameObject:
   - component: {fileID: 2512644862478147481}
   - component: {fileID: 7601633674867353598}
   m_Layer: 0
-  m_Name: HitZone (1)
-  m_TagString: HitZone1
+  m_Name: HitZoneRight
+  m_TagString: HitZoneRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11122,8 +11190,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910005239033910821}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 1.034, y: 1.11, z: 1.28}
-  m_LocalScale: {x: 0.17877905, y: 0.17877904, z: 0.13284892}
+  m_LocalPosition: {x: 1.075, y: 1.17, z: 1.197}
+  m_LocalScale: {x: 0.2379907, y: 0.2379906, z: 0.1768485}
   m_Children: []
   m_Father: {fileID: 241309762962567324}
   m_RootOrder: 9
@@ -11217,7 +11285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7265342054798882511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.79, y: 0.72, z: -2.02}
+  m_LocalPosition: {x: 2.79, y: 0.07000005, z: -2.02}
   m_LocalScale: {x: 3.332106, y: 1, z: 8.699665}
   m_Children: []
   m_Father: {fileID: 241309762962567324}
@@ -11322,7 +11390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7548131182165707402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.121, y: 0.481, z: -0}
+  m_LocalPosition: {x: -7.2, y: 0.481, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 241309762962567324}
@@ -11415,7 +11483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7748758014131838592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.48, y: 0.481, z: 0}
+  m_LocalPosition: {x: 7.2, y: 0.481, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 241309762962567324}

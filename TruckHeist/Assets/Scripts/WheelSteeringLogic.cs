@@ -61,7 +61,7 @@ public class WheelSteeringLogic : MonoBehaviour
             wheelSpin = wheelSpin % 360;
         } 
 
-        if(this.tag != "Truck" && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
+        if((this.tag != "TruckLeftWheel" || this.tag != "TruckRightWheel") && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
             if(m_carAILogic.m_hitTruckLeft) {
                 transform.LookAt(m_grappleLeftFollowObject.transform);
             } else if(m_carAILogic.m_hitTruckRight) {
