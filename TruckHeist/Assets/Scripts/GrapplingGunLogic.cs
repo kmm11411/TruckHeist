@@ -16,17 +16,43 @@ public class GrapplingGunLogic : MonoBehaviour
     private float m_LookVerticalAngle = 0;
     private float m_LookHorizontalAngle = 0;
     public CinemachineVirtualCamera m_GrapplingHookCam;
+
+    CarAILogic m_carAILogic;
+    TruckAILogic m_truckAILogic;
+
+    CarController m_carController;
+
     // Start is called before the first frame update
     void Start()
     {
         m_lineRenderer = GetComponent<LineRenderer>();
+        m_carAILogic = GetComponentInParent<CarAILogic>();
+        m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
+        m_carController = GetComponentInParent<CarController>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(m_carController.m_freezeGrapple) {
+            m_lineRenderer.SetPosition(0, m_grapplingHookSpawn.transform.position);
+            m_lineRenderer.SetPosition(1, m_grapplingHook.transform.position);
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if(m_carAILogic.m_hitTruckLeft) {
+                m_carAILogic.m_hitTruckLeft = false;
+                m_truckAILogic.m_hitOnLeft = false;
+            } else if (m_carAILogic.m_hitTruckRight) {
+                m_carAILogic.m_hitTruckRight = false;
+                m_truckAILogic.m_hitOnRight = false;
+            } else if (m_carAILogic.m_hitTruckFront) {
+                m_carAILogic.m_hitTruckFront = false;
+                m_truckAILogic.m_hitOnFront = false;
+            }
+
             m_gunFired = true;
             m_grapplingHook.SetActive(true);
             m_lineRenderer.enabled = true;

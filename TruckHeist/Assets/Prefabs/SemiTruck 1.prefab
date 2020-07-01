@@ -287,7 +287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17432861416176657}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.005, y: 1.11, z: 2.353}
+  m_LocalPosition: {x: 0.005, y: 1.11, z: 2.399}
   m_LocalScale: {x: 0.17877905, y: 0.2379906, z: 0.13284892}
   m_Children: []
   m_Father: {fileID: 241309762962567324}
@@ -733,8 +733,9 @@ MonoBehaviour:
   m_CarAILogic: {fileID: 0}
   m_GrapplingHookLogic: {fileID: 0}
   m_truck: {fileID: 0}
+  m_semiTruck: {fileID: 0}
   m_grappleLeftFollowSphere: {fileID: 0}
-  m_grappleRightFollowSphere: {fileID: 0}
+  m_freezeGrapple: 0
 --- !u!1 &236699069949442953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3915,6 +3916,7 @@ Transform:
   - {fileID: 4391907486993319529}
   - {fileID: 1686297690}
   - {fileID: 707944988}
+  - {fileID: 4486905633328346069}
   m_Father: {fileID: 236699069455861231}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11083,6 +11085,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &861201669208457876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4486905633328346069}
+  m_Layer: 0
+  m_Name: HitZonFrontGrapplingPoint
+  m_TagString: HitZoneFrontGrapplingPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4486905633328346069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861201669208457876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.005, y: 1.28, z: 2.439}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 241309762962567324}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1370137262523532027
 GameObject:
   m_ObjectHideFlags: 0

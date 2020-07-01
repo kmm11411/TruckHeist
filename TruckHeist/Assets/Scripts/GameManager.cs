@@ -26,7 +26,10 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (m_CarControllers[m_CarControllerIndex].m_GrapplingGun.activeSelf)
+            Debug.Log("Grappling Gun Active Self: " + m_CarControllers[m_CarControllerIndex].m_GrapplingGun.activeSelf);
+            Debug.Log("Freeze Grapple: " + m_CarControllers[m_CarControllerIndex].m_freezeGrapple);
+
+            if (m_CarControllers[m_CarControllerIndex].m_GrapplingGun.activeSelf || (m_CarControllers[m_CarControllerIndex].m_GrapplingGun.activeSelf && m_CarControllers[m_CarControllerIndex].m_freezeGrapple))
             {
                 m_CarControllers[m_CarControllerIndex].DeactivateGrapplingGun();
                 m_CarControllers[m_CarControllerIndex].ActivateCarController();

@@ -80,7 +80,7 @@ public class SphereController : MonoBehaviour
                         m_acceleration = m_carAILogic.m_lastAcceleration;
                     }
                 }
-
+                
                 m_carAILogic.m_lastAcceleration = m_acceleration;
                 m_carAILogic.m_lastDist = dist;
 

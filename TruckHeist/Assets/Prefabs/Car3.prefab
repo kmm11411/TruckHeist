@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 347734920928889947}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 251.21, y: 0.23, z: 453.96}
-  m_LocalScale: {x: 0.7415387, y: 0.7415387, z: 0.7415387}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 865104220844986471}
   - {fileID: 347734919912925709}
@@ -310,6 +310,9 @@ MonoBehaviour:
   m_CarAILogic: {fileID: 7352702864841623302}
   m_GrapplingHookLogic: {fileID: 6448697729767713965}
   m_truck: {fileID: 0}
+  m_semiTruck: {fileID: 0}
+  m_grappleLeftFollowSphere: {fileID: 0}
+  m_freezeGrapple: 0
 --- !u!114 &7352702866158269332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,10 +358,12 @@ MonoBehaviour:
   m_carOffroad: 0
   m_carLeftWheelOffroad: 0
   m_carRightWheelOffroad: 0
-  m_distanceToTruck: 0
+  m_distanceToTruck: {x: 0, y: 0, z: 0}
   m_lastAcceleration: 0
   m_lastDist: 0
-  m_stuckToTruck: 0
+  m_hitTruckLeft: 0
+  m_hitTruckRight: 0
+  m_hitTruckFront: 0
   m_carLeftWheel: {fileID: 873611639360018557}
   m_carRightWheel: {fileID: 865078080508646417}
   m_distanceToFollowObject: 0
@@ -526,7 +531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7352702865780353365}
   m_LocalRotation: {x: -0.1338052, y: 0.6945885, z: -0.13363321, w: -0.6941075}
-  m_LocalPosition: {x: 6.7427373, y: 5.1867704, z: 0.005186097}
+  m_LocalPosition: {x: 5.0000005, y: 4.4896755, z: 0.0038456917}
   m_LocalScale: {x: 1.9854662, y: 1.9854662, z: 1.9854662}
   m_Children:
   - {fileID: 7352702865355462189}
@@ -597,7 +602,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 873140326811570063}
-  m_RootOrder: 26
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7352702866108873845
 MonoBehaviour:
@@ -1139,7 +1144,7 @@ PrefabInstance:
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_adjustmentYOffset
-      value: 0.35
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}

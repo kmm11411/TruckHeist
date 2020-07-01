@@ -24,8 +24,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361763535657390439}
-  m_LocalRotation: {x: -0.013363605, y: 0.97956955, z: -0.18863505, w: -0.068423264}
-  m_LocalPosition: {x: 0.93687934, y: 5.1867704, z: 6.6773224}
+  m_LocalRotation: {x: -0.013363576, y: 0.9795696, z: -0.18863502, w: -0.06842332}
+  m_LocalPosition: {x: 0.69473225, y: 4.4896755, z: 4.951493}
   m_LocalScale: {x: 1.9854662, y: 1.9854662, z: 1.9854662}
   m_Children:
   - {fileID: 1361763537414237727}
@@ -96,7 +96,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8715024329580607421}
-  m_RootOrder: 26
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1361763536653485127
 MonoBehaviour:
@@ -238,7 +238,7 @@ Transform:
   m_GameObject: {fileID: 8087514837331145833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.99323, y: -1.4422, z: -43.577023}
-  m_LocalScale: {x: 0.7415387, y: 0.7415387, z: 0.7415387}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8714059837371967573}
   - {fileID: 8087514838597456447}
@@ -270,6 +270,9 @@ MonoBehaviour:
   m_CarAILogic: {fileID: 1361763536862461748}
   m_GrapplingHookLogic: {fileID: 6448697730974444699}
   m_truck: {fileID: 0}
+  m_semiTruck: {fileID: 0}
+  m_grappleLeftFollowSphere: {fileID: 0}
+  m_freezeGrapple: 0
 --- !u!1 &8087514837603604033
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,10 +598,12 @@ MonoBehaviour:
   m_carOffroad: 0
   m_carLeftWheelOffroad: 0
   m_carRightWheelOffroad: 0
-  m_distanceToTruck: 0
+  m_distanceToTruck: {x: 0, y: 0, z: 0}
   m_lastAcceleration: 0
   m_lastDist: 0
-  m_stuckToTruck: 0
+  m_hitTruckLeft: 0
+  m_hitTruckRight: 0
+  m_hitTruckFront: 0
   m_carLeftWheel: {fileID: 8714546488683176015}
   m_carRightWheel: {fileID: 8714086059598949411}
   m_distanceToFollowObject: 0
@@ -852,7 +857,7 @@ PrefabInstance:
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
       propertyPath: m_adjustmentYOffset
-      value: 0.35
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 638098355948222885, guid: 5ceb36c24c484da45ab3a1b371bb3f62,
         type: 3}
