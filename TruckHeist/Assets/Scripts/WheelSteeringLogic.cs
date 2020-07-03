@@ -31,12 +31,17 @@ public class WheelSteeringLogic : MonoBehaviour
     GameObject m_truckFollowSpaceLeft;
     GameObject m_truckFollowSpaceRight;
     GameObject m_trailer;
+    GameObject m_truck;
 
 
     GameObject m_grappleLeftFollowObject;
     GameObject m_grappleRightFollowObject;
 
     GameObject m_startCamera;
+    GameObject m_transitionCamera;
+
+    public GameObject m_gameManager;
+    GameManager m_gameManagerLogic;
 
     void Awake()
     {
@@ -47,15 +52,20 @@ public class WheelSteeringLogic : MonoBehaviour
         m_truckFollowSpaceLeft = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
         m_truckFollowSpaceRight = GameObject.FindGameObjectWithTag("FollowSpaceRight");
         m_trailer = GameObject.FindGameObjectWithTag("Trailer");
+        m_truck = GameObject.FindGameObjectWithTag("Truck");
 
         m_grappleLeftFollowObject = GameObject.FindGameObjectWithTag("LeftGrappleFollowObject");
         m_grappleRightFollowObject = GameObject.FindGameObjectWithTag("RightGrappleFollowObject");
         m_startCamera = GameObject.FindGameObjectWithTag("StartCamera");
+        m_transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera");
+
+        m_gameManagerLogic = m_gameManager.GetComponent<GameManager>();
     }
 
     void FixedUpdate()
     {
-        if(m_startCamera.activeSelf) {
+        if(m_gameManagerLogic.m_openingScene && (this.tag != "TruckLeftWheel" || this.tag != "TruckRightWheel")) {
+            m_steer = 0;
             return;
         }
 

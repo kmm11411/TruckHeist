@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
     public List<CarController> m_CarControllers;
     public int m_CarControllerIndex = 0;
 
+    public bool m_triggerCarMotion = false;
+
+    public bool m_openingScene = true;
+    public bool m_triggerTruckMotion = false;
+
     void Start()
     {
         // for (int index = 0; index < m_CarControllers.Count; index++)
@@ -85,6 +90,20 @@ public class GameManager : MonoBehaviour
 
                     //m_CarControllers[index].DeactivateGrapplingGun();
                 }
+            }
+        }
+    }
+
+    public void StartGame() {
+        for (int index = 0; index < m_CarControllers.Count; index++)
+        {
+            if (index == m_CarControllerIndex)
+            {
+                m_CarControllers[index].ActivateCarController();
+            }
+            else
+            {
+                m_CarControllers[index].DeactivateCarController();
             }
         }
     }

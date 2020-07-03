@@ -28,6 +28,10 @@ public class SphereController : MonoBehaviour
     public CarAILogic m_carAILogic;
 
     GameObject m_startCamera;
+    GameObject m_transitionCamera;
+
+    public GameObject m_gameManager;
+    GameManager m_gameManagerLogic;
 
 
     // Start is called before the first frame update
@@ -36,12 +40,22 @@ public class SphereController : MonoBehaviour
         m_rigidbody = gameObject.GetComponent<Rigidbody>();
         m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
         m_startCamera = GameObject.FindGameObjectWithTag("StartCamera");
+        m_transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera");
+
+        m_gameManagerLogic = m_gameManager.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(m_startCamera.activeSelf) {
+        if(m_gameManagerLogic.m_openingScene) {
+            if(m_gameManagerLogic.m_triggerTruckMotion && this.tag == "TruckSphere") {
+                m_acceleration = 1.0f * ACCELERATION;
+            } else if (m_gameManagerLogic.m_triggerCarMotion && this.tag != "TruckSphere") {
+                m_acceleration = 1.5f * ACCELERATION; 
+            } else {
+                m_acceleration = 0;
+            } 
             return;
         }
         
@@ -99,7 +113,7 @@ public class SphereController : MonoBehaviour
             if(m_truckAILogic.m_truckLeftWheelOffroad || m_truckAILogic.m_truckRightWheelOffroad) {
                 m_acceleration = m_acceleration / 2.0f;
             }
-        } else if (m_carAILogic.m_carLeftWheelOffroad || m_carAILogic.m_carRightWheelOffroad) {
+        } else if ((m_carAILogic.m_carLeftWheelOffroad || m_carAILogic.m_carRightWheelOffroad) && !m_startCamera.activeSelf) {
                 m_acceleration = m_acceleration / 2.0f;
         }
          

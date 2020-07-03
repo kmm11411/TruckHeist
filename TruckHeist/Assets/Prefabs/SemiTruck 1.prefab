@@ -913,7 +913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_acceleration: 0
   m_force: {x: 0, y: 0, z: 0}
-  ACCELERATION: 300000
+  ACCELERATION: 1000000
   m_vehicle: {fileID: 237758822500602228}
   m_Steering: {fileID: 241334870120082816}
   m_reverse: 0
@@ -921,6 +921,7 @@ MonoBehaviour:
   m_breaking: 0
   m_nosActive: 0
   m_carAILogic: {fileID: 0}
+  m_gameManager: {fileID: 0}
 --- !u!54 &236699070594759471
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -46,59 +46,47 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -1.1964264, y: 0, z: 0.5890808}
-      - {x: 36.637207, y: 0, z: -0.5926266}
-      - {x: 74.47084, y: 0, z: -1.774334}
-      - {x: 106.355606, y: 0, z: 3.231659}
-      - {x: 125.309555, y: 0, z: 6.207479}
-      - {x: 150.12427, y: 0, z: 13.624338}
-      - {x: 167.69536, y: 0, z: 21.329163}
-      - {x: 208.28345, y: 0, z: 39.126816}
-      - {x: 251.83806, y: 0, z: 84.9967}
-      - {x: 294.43488, y: 0, z: 97.230316}
-      - {x: 381.52148, y: 0, z: 122.24121}
-      - {x: 506.04596, y: 0, z: 96.417114}
       - {x: 596.3992, y: 0, z: 103.19351}
-      - {x: 702.1435, y: 0, z: 111.12422}
+      - {x: 718.86255, y: 0, z: 121.0687}
       - {x: 841.32587, y: 0, z: 138.9439}
       - {x: 946.88873, y: 0, z: 149.00565}
       - {x: 972.2991, y: 0, z: 151.42764}
-      - {x: 1006.3382, y: 0, z: 155.60432}
+      - {x: 1006.3382, y: 0.0000025405834, z: 155.60432}
       - {x: 1031.8202, y: 0, z: 154.11484}
-      - {x: 1216.771, y: 0, z: 143.30396}
-      - {x: 1455.805, y: 0.00008821643, z: 67.617004}
-      - {x: 1639.7424, y: 0, z: 45.464508}
-      - {x: 1677.9833, y: -0.000018340332, z: 40.85897}
-      - {x: 1729.3628, y: -0.00011327891, z: 37.59199}
+      - {x: 1216.771, y: -0.0000184398, z: 143.30396}
+      - {x: 1455.805, y: -0.00010372998, z: 67.617004}
+      - {x: 1639.7424, y: -0.00012207031, z: 45.464508}
+      - {x: 1677.9833, y: -0.00012588329, z: 40.85897}
+      - {x: 1729.3628, y: -0.00013162015, z: 37.59199}
       - {x: 1767.8795, y: -0.00012207031, z: 37.399353}
-      - {x: 1841.854, y: -0.00013895491, z: 37.029377}
-      - {x: 1940.1473, y: -0.000018328292, z: 49.77203}
-      - {x: 2014.1199, y: 0, z: 50.426758}
-      - {x: 2322.0972, y: 0.000076308046, z: 53.152657}
-      - {x: 2732.2295, y: 0, z: 6.4234056}
+      - {x: 1841.854, y: -0.00010372907, z: 37.029377}
+      - {x: 1940.1473, y: -0.000013926051, z: 49.77203}
+      - {x: 2014.1199, y: -0.00012207031, z: 50.426758}
+      - {x: 2322.0972, y: 0.000057979752, z: 53.152657}
+      - {x: 2732.2295, y: -0.00023571018, z: 6.4234056}
       - {x: 3040.117, y: 0, z: 14.343506}
-      - {x: 3082.9102, y: 0, z: 15.444322}
-      - {x: 3140.2844, y: 0, z: 18.355919}
-      - {x: 3182.274, y: 0, z: 26.683899}
-      - {x: 3296.054, y: 0, z: 49.250378}
+      - {x: 3082.9102, y: -0.0001062755, z: 15.444322}
+      - {x: 3140.2844, y: -0.000018420273, z: 18.355919}
+      - {x: 3182.274, y: -0.00012207031, z: 26.683899}
+      - {x: 3296.054, y: 0.000049913757, z: 49.250378}
       - {x: 3437.5063, y: -0.000029810419, z: 119.224174}
       - {x: 3551.0833, y: 0, z: 142.79196}
       - {x: 3621.199, y: 0.000018403214, z: 157.34134}
-      - {x: 3717.1284, y: 0.00011071349, z: 173.61905}
+      - {x: 3717.1284, y: 0.00010343111, z: 173.61905}
       - {x: 3788.486, y: 0.00012207031, z: 167.62106}
-      - {x: 3971.1257, y: 0.00015113807, z: 152.26926}
-      - {x: 4199.1333, y: 0.000018317634, z: 47.828312}
-      - {x: 4376.9834, y: 0, z: 3.5302734}
-      - {x: 4435.6616, y: -0.0000060435464, z: -11.085001}
-      - {x: 4513.4946, y: 0, z: -36.09949}
-      - {x: 4573.8564, y: 0, z: -39.728638}
-      - {x: 4720.073, y: 0, z: -48.51966}
-      - {x: 4913.402, y: 0, z: 5.18102}
-      - {x: 5059.869, y: 0, z: 7.1661377}
-      - {x: 5178.1274, y: 0, z: 8.768928}
-      - {x: 5337.596, y: 0, z: -45.203476}
+      - {x: 3971.1257, y: 0.00016977728, z: 152.26926}
+      - {x: 4199.1333, y: 0.00012207031, z: 47.828312}
+      - {x: 4376.9834, y: 0.00012207031, z: 3.5302734}
+      - {x: 4435.6616, y: 0.00012207031, z: -11.085001}
+      - {x: 4513.4946, y: 0.00012972257, z: -36.09949}
+      - {x: 4573.8564, y: 0.00012207031, z: -39.728638}
+      - {x: 4720.073, y: 0.000103533974, z: -48.51966}
+      - {x: 4913.402, y: 0.00001837325, z: 5.18102}
+      - {x: 5059.869, y: 0.00012207031, z: 7.1661377}
+      - {x: 5178.1274, y: -0.0000148346135, z: 8.768928}
+      - {x: 5337.596, y: 0.000018317634, z: -45.203476}
       - {x: 5453.159, y: 0, z: -20.048035}
-      - {x: 5645.068, y: 0, z: 21.726135}
+      - {x: 5645.068, y: -0.0000060435464, z: 21.726135}
       - {x: 5841.354, y: 0, z: 232.61423}
       - {x: 6028.3945, y: 0, z: 292.52878}
       - {x: 6111.0986, y: 0, z: 319.02127}
@@ -141,10 +129,6 @@ MonoBehaviour:
       - 0
       - 0
       - 0
-      - 0
-      - 0
-      - 0
-      - 0
       globalNormalsAngle: 0
       flipNormals: 0
     vertexPathUpToDate: 1
@@ -153,20 +137,20 @@ MonoBehaviour:
     showTransformTool: 1
     showPathBounds: 0
     showPerSegmentBounds: 0
-    displayAnchorPoints: 1
+    displayAnchorPoints: 0
     displayControlPoints: 1
     bezierHandleScale: 1
-    globalDisplaySettingsFoldout: 0
+    globalDisplaySettingsFoldout: 1
     keepConstantHandleSize: 0
     showNormalsInVertexMode: 0
-    showBezierPathInVertexMode: 0
-    showDisplayOptions: 0
+    showBezierPathInVertexMode: 1
+    showDisplayOptions: 1
     showPathOptions: 1
-    showVertexPathDisplayOptions: 0
+    showVertexPathDisplayOptions: 1
     showVertexPathOptions: 1
     showNormals: 0
     showNormalsHelpInfo: 0
-    tabIndex: 0
+    tabIndex: 1
   initialized: 1
 --- !u!1 &679644642206864165
 GameObject:
@@ -279,12 +263,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 679644642206864163}
   autoUpdate: 0
-  roadWidth: 30
-  thickness: 0.15
+  roadWidth: 20
+  thickness: 0.298
   flattenSurface: 0
-  roadMaterial: {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  roadMaterial: {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   undersideMaterial: {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
-  textureTiling: 10
+  textureTiling: 20
   meshHolder: {fileID: 679644643200407653}
 --- !u!1 &679644642324624195
 GameObject:
@@ -304,7 +288,7 @@ GameObject:
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &679644642324624206
 Transform:
@@ -314,7 +298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679644642324624195}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -253.8, y: -50.28, z: -441.09732}
+  m_LocalPosition: {x: -253.8, y: -50.3, z: -441.09732}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8790455131658053370}
@@ -346,7 +330,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
   - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
   m_StaticBatchInfo:
@@ -380,7 +364,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -506,12 +490,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 679644642436538729}
   autoUpdate: 0
-  roadWidth: 30
+  roadWidth: 20
   thickness: 0.298
   flattenSurface: 0
-  roadMaterial: {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  roadMaterial: {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   undersideMaterial: {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
-  textureTiling: 10
+  textureTiling: 20
   meshHolder: {fileID: 679644642946002663}
 --- !u!1 &679644642850209361
 GameObject:
@@ -531,7 +515,7 @@ GameObject:
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &679644642850209372
 Transform:
@@ -541,7 +525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679644642850209361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -253.8, y: -50.28, z: -441.09732}
+  m_LocalPosition: {x: -253.8, y: -50.3, z: -441.09732}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8790455131658053370}
@@ -573,7 +557,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   m_StaticBatchInfo:
@@ -607,7 +591,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -644,7 +628,7 @@ GameObject:
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &679644642946002658
 Transform:
@@ -654,7 +638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679644642946002663}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -253.8, y: -50.28, z: -441.09732}
+  m_LocalPosition: {x: -253.8, y: -50.3, z: -441.09732}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8790455131658053370}
@@ -686,7 +670,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   m_StaticBatchInfo:
@@ -720,7 +704,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -767,7 +751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679644643034468684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -253.8, y: -50.28, z: -441.09732}
+  m_LocalPosition: {x: -253.8, y: -50.3, z: -441.09732}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8790455131658053370}
@@ -799,7 +783,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
   - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
   m_StaticBatchInfo:
@@ -963,12 +947,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 679644643179139648}
   autoUpdate: 0
-  roadWidth: 30
-  thickness: 0.15
+  roadWidth: 20
+  thickness: 0.298
   flattenSurface: 0
-  roadMaterial: {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  roadMaterial: {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   undersideMaterial: {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
-  textureTiling: 10
+  textureTiling: 20
   meshHolder: {fileID: 679644643034468684}
 --- !u!1 &679644643200407653
 GameObject:
@@ -998,7 +982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679644643200407653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -253.8, y: -50.28, z: -441.09732}
+  m_LocalPosition: {x: -253.8, y: -50.3, z: -441.09732}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8790455131658053370}
@@ -1030,7 +1014,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
   - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
   m_StaticBatchInfo:
@@ -1194,12 +1178,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 679644643245412503}
   autoUpdate: 0
-  roadWidth: 30
+  roadWidth: 20
   thickness: 0.298
   flattenSurface: 0
-  roadMaterial: {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  roadMaterial: {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   undersideMaterial: {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
-  textureTiling: 10
+  textureTiling: 20
   meshHolder: {fileID: 679644642850209361}
 --- !u!1 &679644643300446820
 GameObject:
@@ -1312,12 +1296,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 679644643300446818}
   autoUpdate: 0
-  roadWidth: 30
-  thickness: 0.15
+  roadWidth: 20
+  thickness: 0.298
   flattenSurface: 0
-  roadMaterial: {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  roadMaterial: {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   undersideMaterial: {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
-  textureTiling: 10
+  textureTiling: 20
   meshHolder: {fileID: 679644642324624195}
 --- !u!1 &679644644009738627
 GameObject:
@@ -1337,7 +1321,7 @@ GameObject:
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &679644644009738638
 Transform:
@@ -1347,7 +1331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679644644009738627}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -253.8, y: -50.28, z: -441.09732}
+  m_LocalPosition: {x: -253.8, y: -50.3, z: -441.09732}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8790455131658053370}
@@ -1379,7 +1363,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   - {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   m_StaticBatchInfo:
@@ -1543,12 +1527,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 679644644327866367}
   autoUpdate: 0
-  roadWidth: 30
-  thickness: 0.15
+  roadWidth: 20
+  thickness: 0.298
   flattenSurface: 0
-  roadMaterial: {fileID: 2100000, guid: 483b1858434d89a47b9ce5b30d929e0e, type: 2}
+  roadMaterial: {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
   undersideMaterial: {fileID: 2100000, guid: a05aeb29c7aef1e45aa6c771dcb8f904, type: 2}
-  textureTiling: 10
+  textureTiling: 20
   meshHolder: {fileID: 679644644009738627}
 --- !u!1 &5331621099134018848
 GameObject:
