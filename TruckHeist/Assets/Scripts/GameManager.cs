@@ -9,16 +9,21 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // for (int index = 0; index < m_CarControllers.Count; index++)
+        // {
+        //     if (index == m_CarControllerIndex)
+        //     {
+        //         m_CarControllers[index].ActivateCarController();
+        //     }
+        //     else
+        //     {
+        //         m_CarControllers[index].DeactivateCarController();
+        //     }
+        // }
+
         for (int index = 0; index < m_CarControllers.Count; index++)
         {
-            if (index == m_CarControllerIndex)
-            {
-                m_CarControllers[index].ActivateCarController();
-            }
-            else
-            {
-                m_CarControllers[index].DeactivateCarController();
-            }
+            m_CarControllers[index].DeactivateCarController();
         }
     }
 

@@ -27,17 +27,24 @@ public class SphereController : MonoBehaviour
     [SerializeField]
     public CarAILogic m_carAILogic;
 
+    GameObject m_startCamera;
+
 
     // Start is called before the first frame update
     void Start()
     {
         m_rigidbody = gameObject.GetComponent<Rigidbody>();
         m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
+        m_startCamera = GameObject.FindGameObjectWithTag("StartCamera");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(m_startCamera.activeSelf) {
+            return;
+        }
+        
         if(this.tag != "TruckSphere" && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
             m_acceleration = 0;
             return;

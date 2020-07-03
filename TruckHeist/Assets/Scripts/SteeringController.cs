@@ -30,6 +30,8 @@ public class SteeringController : MonoBehaviour
     [SerializeField]
     CarAILogic m_carAILogic;
 
+    GameObject m_startCamera;
+
     void Awake()
     {
         // m_rigidbody = GetComponent<Rigidbody>();
@@ -38,10 +40,15 @@ public class SteeringController : MonoBehaviour
         m_sphereRB = m_sphere.GetComponent<Rigidbody>();
         m_players = GameObject.FindGameObjectsWithTag("Player");
         m_truck = GameObject.FindGameObjectWithTag("Truck");
+        m_startCamera = GameObject.FindGameObjectWithTag("StartCamera");
     }
 
     void FixedUpdate()
     {
+        if(m_startCamera.activeSelf) {
+            return;
+        }
+        
         if(this.tag != "Truck" && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
             transform.position = new Vector3(m_sphereTransform.position.x, m_sphereTransform.position.y- m_adjustmentYOffset, m_sphereTransform.position.z);
             transform.rotation = math.slerp(transform.rotation, m_wheelTransform.rotation, m_steeringPower * .1f);
