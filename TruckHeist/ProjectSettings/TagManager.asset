@@ -42,6 +42,7 @@ TagManager:
   - HitZoneLeftGrapplingPoint
   - HitZoneRightGrapplingPoint
   - HitZoneFrontGrapplingPoint
+  - StartCamera
   layers:
   - Default
   - TransparentFX

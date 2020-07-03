@@ -36,6 +36,8 @@ public class WheelSteeringLogic : MonoBehaviour
     GameObject m_grappleLeftFollowObject;
     GameObject m_grappleRightFollowObject;
 
+    GameObject m_startCamera;
+
     void Awake()
     {
         m_sphereTransform = m_sphere.transform;
@@ -48,10 +50,15 @@ public class WheelSteeringLogic : MonoBehaviour
 
         m_grappleLeftFollowObject = GameObject.FindGameObjectWithTag("LeftGrappleFollowObject");
         m_grappleRightFollowObject = GameObject.FindGameObjectWithTag("RightGrappleFollowObject");
+        m_startCamera = GameObject.FindGameObjectWithTag("StartCamera");
     }
 
     void FixedUpdate()
     {
+        if(m_startCamera.activeSelf) {
+            return;
+        }
+
         if (m_sphereRB.velocity.magnitude > 0)
         {
             wheelSpin += m_sphereRB.velocity.magnitude*2f;
