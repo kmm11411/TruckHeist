@@ -33,6 +33,7 @@ public class CarAILogic : MonoBehaviour
     public float m_directionToTruckFollowSpaceRight;
     public float m_directionToTruck;
 
+    /*
 
     // Start is called before the first frame update
     void Start()
@@ -109,4 +110,6 @@ public class CarAILogic : MonoBehaviour
         float dist = Vector3.Dot(heading, transform.forward);
         return dist;
     }
+
+    */
 }

@@ -21,41 +21,47 @@ public class CarController : MonoBehaviour
     public GameObject m_semiTruck;
     public GameObject m_grappleLeftFollowSphere;
     GameObject m_grappleRightFollowSphere;
-
+    public Rigidbody m_SphereRigidBody;
+    public bool m_ActivePlayer = false;
     public bool m_freezeGrapple = false;
 
     // Start is called before the first frame update
     void Start()
     {
         InitializeCars();
-        m_GrapplingHookLogic = GetComponentInChildren<GrapplingHookLogic>();
-        //m_grappleLeftFollowSphere = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
-        m_grappleRightFollowSphere = GameObject.FindGameObjectWithTag("FollowSpaceRight");
+        
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(m_CarAILogic.m_hitTruckFront || m_CarAILogic.m_hitTruckLeft || m_CarAILogic.m_hitTruckRight) { 
-           transform.parent = m_truck.transform;
-        }
+        //if (!m_ActivePlayer)
+        //{
+        //    transform.position = Vector3.Lerp(transform.position, m_truck.transform.position, .01f);
+        //}
+
+        //if(m_CarAILogic.m_hitTruckFront || m_CarAILogic.m_hitTruckLeft || m_CarAILogic.m_hitTruckRight) { 
+        //   transform.parent = m_truck.transform;
+        //}
     }
 
     public void ActivateCarController()
     {
         m_SteeringController.m_ActivePlayer = true;
+        m_SphereRigidBody.isKinematic = false;
         m_SphereController.m_ActivePlayer = true;
         m_WheelSteeringLogicRight.m_ActivePlayer = true;
         m_WheelSteeringLogicLeft.m_ActivePlayer = true;
         m_WheelSteeringReverse.m_ActivePlayer = true;
         m_CMVirtualCamera.enabled = true;
+        //transform.parent = null;
+        m_ActivePlayer = true;
     }
 
     public void ActivateGrapplingGun()
     {
         if(m_freezeGrapple) {
             m_freezeGrapple = false;
-            
         } else {
             m_GrapplingGun.SetActive(true);
         }
@@ -78,19 +84,25 @@ public class CarController : MonoBehaviour
     public void DeactivateCarController()
     {
         m_CarAILogic.m_lastAcceleration = m_SphereController.m_acceleration;
+        m_SphereRigidBody.isKinematic = true;
         m_SteeringController.m_ActivePlayer = false;
         m_SphereController.m_ActivePlayer = false;
         m_WheelSteeringLogicRight.m_ActivePlayer = false;
         m_WheelSteeringLogicLeft.m_ActivePlayer = false;
         m_WheelSteeringReverse.m_ActivePlayer = false;
         m_CMVirtualCamera.enabled = false;
-        
+        //transform.parent = m_truck.transform;
+        m_ActivePlayer = false;
     }
 
-    private void InitializeCars() {
-        if(this.tag != "Truck") {
+    public void InitializeCars() {
+        /*if(this.tag != "Truck") {
             m_SphereController.m_acceleration = 57000f;
-        }
+        }*/
+        m_GrapplingHookLogic = GetComponentInChildren<GrapplingHookLogic>();
+        //m_grappleLeftFollowSphere = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
+        m_grappleRightFollowSphere = GameObject.FindGameObjectWithTag("FollowSpaceRight");
+        m_SphereRigidBody = m_SphereController.gameObject.GetComponent<Rigidbody>();
     }
 
     private void MoveToGrapplePoint(Vector3 dest) {

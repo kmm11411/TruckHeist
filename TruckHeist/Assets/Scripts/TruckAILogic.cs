@@ -57,7 +57,7 @@ public class TruckAILogic : MonoBehaviour
             m_truckRightWheelOffroad = CheckOffRoad(m_truckRightWheel.position);
         }
 
-        //m_distanceFromFollowObject = CheckDistanceFromFollowObject();
+        m_distanceFromFollowObject = CheckDistanceFromFollowObject();
         m_distanceFromFollowObject = CheckDirectionFromFollowObject();
     }
 

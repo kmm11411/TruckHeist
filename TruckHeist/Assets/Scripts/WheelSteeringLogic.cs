@@ -21,24 +21,24 @@ public class WheelSteeringLogic : MonoBehaviour
     private float MAXSTEERINGPOWER = 2f;
     
     public bool m_wheelOffroad = false;
-    
+
     TruckAILogic m_truckAILogic;
 
     [SerializeField]
     CarAILogic m_carAILogic;
 
     GameObject m_truckFollowObject;
-    GameObject m_truckFollowSpaceLeft;
-    GameObject m_truckFollowSpaceRight;
-    GameObject m_trailer;
-    GameObject m_truck;
+    //GameObject m_truckFollowSpaceLeft;
+    //GameObject m_truckFollowSpaceRight;
+    //GameObject m_trailer;
+    //GameObject m_truck;
 
 
-    GameObject m_grappleLeftFollowObject;
-    GameObject m_grappleRightFollowObject;
+    //GameObject m_grappleLeftFollowObject;
+    //GameObject m_grappleRightFollowObject;
 
-    GameObject m_startCamera;
-    GameObject m_transitionCamera;
+    //GameObject m_startCamera;
+    //GameObject m_transitionCamera;
 
     public GameObject m_gameManager;
     GameManager m_gameManagerLogic;
@@ -49,45 +49,46 @@ public class WheelSteeringLogic : MonoBehaviour
         m_sphereRB = m_sphere.GetComponent<Rigidbody>();
         m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
         m_truckFollowObject = GameObject.FindGameObjectWithTag("TruckFollowObject");
-        m_truckFollowSpaceLeft = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
-        m_truckFollowSpaceRight = GameObject.FindGameObjectWithTag("FollowSpaceRight");
-        m_trailer = GameObject.FindGameObjectWithTag("Trailer");
-        m_truck = GameObject.FindGameObjectWithTag("Truck");
+        //m_truckFollowSpaceLeft = GameObject.FindGameObjectWithTag("FollowSpaceLeft");
+        //m_truckFollowSpaceRight = GameObject.FindGameObjectWithTag("FollowSpaceRight");
+        //m_trailer = GameObject.FindGameObjectWithTag("Trailer");
+        //m_truck = GameObject.FindGameObjectWithTag("Truck");
 
-        m_grappleLeftFollowObject = GameObject.FindGameObjectWithTag("LeftGrappleFollowObject");
-        m_grappleRightFollowObject = GameObject.FindGameObjectWithTag("RightGrappleFollowObject");
-        m_startCamera = GameObject.FindGameObjectWithTag("StartCamera");
-        m_transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera");
-
-        m_gameManagerLogic = m_gameManager.GetComponent<GameManager>();
+        //m_grappleLeftFollowObject = GameObject.FindGameObjectWithTag("LeftGrappleFollowObject");
+        //m_grappleRightFollowObject = GameObject.FindGameObjectWithTag("RightGrappleFollowObject");
+        //m_startCamera = GameObject.FindGameObjectWithTag("StartCamera");
+        //m_transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera");
+        m_gameManager = GameObject.FindGameObjectWithTag("GameManager");
+      //  m_gameManagerLogic = m_gameManager.GetComponent<GameManager>();
     }
 
     void FixedUpdate()
     {
-        if(m_gameManagerLogic.m_openingScene && (this.tag != "TruckLeftWheel" || this.tag != "TruckRightWheel")) {
-            m_steer = 0;
-            return;
-        }
+        //if(m_gameManagerLogic.m_openingScene && (this.tag != "TruckLeftWheel" || this.tag != "TruckRightWheel")) {
+        //    m_steer = 0;
+        //    return;
+        //}
 
         if (m_sphereRB.velocity.magnitude > 0)
         {
-            wheelSpin += m_sphereRB.velocity.magnitude*2f;
+            wheelSpin += m_sphereRB.velocity.magnitude * 2f;
         }
         if (wheelSpin > 360)
         {
             wheelSpin = wheelSpin % 360;
-        } 
+        }
 
+        /*
         if((this.tag != "TruckLeftWheel" || this.tag != "TruckRightWheel") && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
             if(m_carAILogic.m_hitTruckLeft) {
                 transform.LookAt(m_grappleLeftFollowObject.transform);
             } else if(m_carAILogic.m_hitTruckRight) {
                 transform.LookAt(m_grappleRightFollowObject.transform);
             }
-
             return;
         }
-        
+        */
+
         if (m_ActivePlayer)
         {
             m_steer = Input.GetAxis("Horizontal") * m_steeringPower;
@@ -97,7 +98,7 @@ public class WheelSteeringLogic : MonoBehaviour
                 m_steer *= -1;
             }
 
-            if(m_steer!=0)
+            if (m_steer != 0)
             {
                 transform.localRotation = Quaternion.Euler(new Vector3(0, m_steer, 0));
             }
@@ -106,7 +107,21 @@ public class WheelSteeringLogic : MonoBehaviour
                 math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
                 transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
             }
-        } else { 
+        }
+        else { 
+            if (m_truckAILogic.m_distanceFromFollowObject > 0)
+            {
+                transform.LookAt(m_truckFollowObject.transform);
+            }
+            else
+            {
+                m_steer = 0;
+                math.lerp(m_steer, m_SteeringTransform.rotation.y, .5f);
+                transform.localRotation = Quaternion.Euler(new Vector3(0, -m_steer, 0));
+            } 
+        }
+        /*
+        else { 
             if(this.tag == "TruckLeftWheel" || this.tag == "TruckRightWheel") {
                 //Check if on road or offroad. If offroad, steer back on road
                 if(m_truckAILogic.m_truckLeftWheelOffroad) {
@@ -165,6 +180,6 @@ public class WheelSteeringLogic : MonoBehaviour
                     }
                 }
             }
-        }      
+        } */
     }
 }

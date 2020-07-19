@@ -122,18 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &192573811 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7352702866282798752, guid: d53c06dba2d7dde4191ee4dc3cdb55a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 967092997}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f32bc0203b87dbe42be3d4599ff28435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &325894227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -396,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 204927353462824548, guid: 05d518dde0c6a804caeef91836833f68,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.06204391
+      value: 0.06204392
       objectReference: {fileID: 0}
     - target: {fileID: 204927353462824548, guid: 05d518dde0c6a804caeef91836833f68,
         type: 3}
@@ -411,7 +399,7 @@ PrefabInstance:
     - target: {fileID: 204927353462824548, guid: 05d518dde0c6a804caeef91836833f68,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.38232917
+      value: 0.38232923
       objectReference: {fileID: 0}
     - target: {fileID: 204927353462824548, guid: 05d518dde0c6a804caeef91836833f68,
         type: 3}
@@ -423,6 +411,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.3276982
       objectReference: {fileID: 0}
+    - target: {fileID: 204927354000490800, guid: 05d518dde0c6a804caeef91836833f68,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 204927354033957267, guid: 05d518dde0c6a804caeef91836833f68,
         type: 3}
       propertyPath: m_truck
@@ -432,6 +425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917923796268301160, guid: 05d518dde0c6a804caeef91836833f68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6917923796268301161, guid: 05d518dde0c6a804caeef91836833f68,
         type: 3}
@@ -487,6 +485,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917923797267160377, guid: 05d518dde0c6a804caeef91836833f68,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917923797267160383, guid: 05d518dde0c6a804caeef91836833f68,
+        type: 3}
+      propertyPath: m_gameManager
+      value: 
+      objectReference: {fileID: 1610198092}
+    - target: {fileID: 7532605783704477508, guid: 05d518dde0c6a804caeef91836833f68,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532663403440291900, guid: 05d518dde0c6a804caeef91836833f68,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05d518dde0c6a804caeef91836833f68, type: 3}
@@ -1051,6 +1069,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &650754332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 236699069455861230, guid: 2f724c6018c6d564890beaa5133009e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 236699070372148834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,7 +1690,7 @@ PrefabInstance:
     - target: {fileID: 1361763535657390437, guid: 922a8ddb21108674bbe058aeb2d25d3a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.011346035
+      value: -0.011346027
       objectReference: {fileID: 0}
     - target: {fileID: 1361763535657390437, guid: 922a8ddb21108674bbe058aeb2d25d3a,
         type: 3}
@@ -1676,12 +1700,12 @@ PrefabInstance:
     - target: {fileID: 1361763535657390437, guid: 922a8ddb21108674bbe058aeb2d25d3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.15978026
+      value: -0.15978028
       objectReference: {fileID: 0}
     - target: {fileID: 1361763535657390437, guid: 922a8ddb21108674bbe058aeb2d25d3a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.06877431
+      value: -0.06877419
       objectReference: {fileID: 0}
     - target: {fileID: 1361763535657390437, guid: 922a8ddb21108674bbe058aeb2d25d3a,
         type: 3}
@@ -1793,6 +1817,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car2
       objectReference: {fileID: 0}
+    - target: {fileID: 8087514837331145833, guid: 922a8ddb21108674bbe058aeb2d25d3a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087514838597456440, guid: 922a8ddb21108674bbe058aeb2d25d3a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087514838597456446, guid: 922a8ddb21108674bbe058aeb2d25d3a,
+        type: 3}
+      propertyPath: m_gameManager
+      value: 
+      objectReference: {fileID: 1610198092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 922a8ddb21108674bbe058aeb2d25d3a, type: 3}
 --- !u!114 &879966485 stripped
@@ -1814,6 +1853,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 347734919912925706, guid: d53c06dba2d7dde4191ee4dc3cdb55a6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 347734919912925708, guid: d53c06dba2d7dde4191ee4dc3cdb55a6,
+        type: 3}
+      propertyPath: m_gameManager
+      value: 
+      objectReference: {fileID: 1610198092}
     - target: {fileID: 347734920928889946, guid: d53c06dba2d7dde4191ee4dc3cdb55a6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1888,6 +1937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car3
+      objectReference: {fileID: 0}
+    - target: {fileID: 347734920928889947, guid: d53c06dba2d7dde4191ee4dc3cdb55a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 500642077698817168, guid: d53c06dba2d7dde4191ee4dc3cdb55a6,
         type: 3}
@@ -3423,7 +3477,7 @@ GameObject:
   - component: {fileID: 1610198093}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3443,8 +3497,10 @@ MonoBehaviour:
   m_CarControllers:
   - {fileID: 1948813251}
   - {fileID: 500490585}
-  - {fileID: 192573811}
   m_CarControllerIndex: 0
+  m_triggerCarMotion: 0
+  m_openingScene: 0
+  m_triggerTruckMotion: 0
 --- !u!4 &1610198094
 Transform:
   m_ObjectHideFlags: 0
@@ -3606,7 +3662,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be76e5f14cfee674cb30b491fb72b09b, type: 3}
   m_Name: 
@@ -3689,7 +3745,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.14829588, y: -0.3731453, z: 0.060552537, w: 0.9138405}
+  m_LocalRotation: {x: 0.14829588, y: -0.37314528, z: 0.060552523, w: 0.9138405}
   m_LocalPosition: {x: 260.5277, y: 2.9196754, z: 436.11484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4069,6 +4125,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 236699069638234786, guid: 2f724c6018c6d564890beaa5133009e9,
+        type: 3}
+      propertyPath: m_truck
+      value: 
+      objectReference: {fileID: 1067444184}
+    - target: {fileID: 236699069638234786, guid: 2f724c6018c6d564890beaa5133009e9,
+        type: 3}
+      propertyPath: m_semiTruck
+      value: 
+      objectReference: {fileID: 650754332}
+    - target: {fileID: 236699069638234786, guid: 2f724c6018c6d564890beaa5133009e9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 236699070145751994, guid: 2f724c6018c6d564890beaa5133009e9,
         type: 3}
       propertyPath: m_carAILogic
@@ -4082,8 +4153,13 @@ PrefabInstance:
     - target: {fileID: 236699070594759468, guid: 2f724c6018c6d564890beaa5133009e9,
         type: 3}
       propertyPath: ACCELERATION
-      value: 1000000
+      value: 750000
       objectReference: {fileID: 0}
+    - target: {fileID: 236699070594759468, guid: 2f724c6018c6d564890beaa5133009e9,
+        type: 3}
+      propertyPath: m_gameManager
+      value: 
+      objectReference: {fileID: 1610198092}
     - target: {fileID: 6031347690449903624, guid: 2f724c6018c6d564890beaa5133009e9,
         type: 3}
       propertyPath: m_Mesh

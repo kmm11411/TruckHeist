@@ -17,7 +17,7 @@ public class SphereController : MonoBehaviour
     public bool m_breaking = false;
     private float m_lastAcceleration;
     private float m_lastDistance;
-    
+
     private bool m_nosFull = false;
     private float NOSCOOLDOWN = 10f;
     public bool m_nosActive = false;
@@ -32,37 +32,38 @@ public class SphereController : MonoBehaviour
 
     public GameObject m_gameManager;
     GameManager m_gameManagerLogic;
-
+    public GameObject m_Truck;
 
     // Start is called before the first frame update
     void Start()
     {
         m_rigidbody = gameObject.GetComponent<Rigidbody>();
-        m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>(); 
-        m_startCamera = GameObject.FindGameObjectWithTag("StartCamera");
-        m_transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera");
-
-        m_gameManagerLogic = m_gameManager.GetComponent<GameManager>();
+        m_truckAILogic = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckAILogic>();
+        m_Truck = GameObject.FindGameObjectWithTag("Truck");
+        //m_startCamera = GameObject.FindGameObjectWithTag("StartCamera");
+        //m_transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera");
+        m_gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        //m_gameManagerLogic = m_gameManager.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(m_gameManagerLogic.m_openingScene) {
-            if(m_gameManagerLogic.m_triggerTruckMotion && this.tag == "TruckSphere") {
-                m_acceleration = 1.0f * ACCELERATION;
-            } else if (m_gameManagerLogic.m_triggerCarMotion && this.tag != "TruckSphere") {
-                m_acceleration = 1.5f * ACCELERATION; 
-            } else {
-                m_acceleration = 0;
-            } 
-            return;
-        }
-        
-        if(this.tag != "TruckSphere" && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
-            m_acceleration = 0;
-            return;
-        }
+        //if(m_gameManagerLogic.m_openingScene) {
+        //    if(m_gameManagerLogic.m_triggerTruckMotion && this.tag == "TruckSphere") {
+        //        m_acceleration = 1.0f * ACCELERATION;
+        //    } else if (m_gameManagerLogic.m_triggerCarMotion && this.tag != "TruckSphere") {
+        //        m_acceleration = 1.5f * ACCELERATION; 
+        //    } else {
+        //        m_acceleration = 0;
+        //    } 
+        //    return;
+        //}
+
+        //if(this.tag != "TruckSphere" && (m_carAILogic.m_hitTruckFront || m_carAILogic.m_hitTruckLeft || m_carAILogic.m_hitTruckRight)) {
+        //    m_acceleration = 0;
+        //    return;
+        //}
 
         if (m_ActivePlayer)
         {
@@ -74,49 +75,73 @@ public class SphereController : MonoBehaviour
             m_carAILogic.m_lastAcceleration = m_acceleration;
         }
         //add AI control
-        else
-        {
-            if(this.tag == "TruckSphere") {
-                if(!m_truckAILogic.m_hitOnLeft && !m_truckAILogic.m_hitOnRight && !m_truckAILogic.m_hitOnFront) {
-                   m_acceleration = 1.0f * ACCELERATION; 
-                } else if (m_truckAILogic.m_hitOnLeft || m_truckAILogic.m_hitOnRight) {
-                    m_acceleration = 0.8f * ACCELERATION;
-                } else if (m_truckAILogic.m_hitOnLeft && m_truckAILogic.m_hitOnRight) {
-                    m_acceleration = 0.5f * ACCELERATION;
-                } 
-                m_breaking = false;
-            } else {
-                float dist = m_carAILogic.m_directionToTruck;
-                m_acceleration = m_carAILogic.m_lastAcceleration;
-                if (dist > 30f) {
-                    m_acceleration += 250f;
-                } else if (dist < -20f) {
-                    m_acceleration -= 250f;
-                } else {
-                    if(dist < m_carAILogic.m_lastDist) {
-                        m_acceleration -= 300f;
-                    } else if (dist > m_carAILogic.m_lastDist) {
-                        m_acceleration += 300f;
-                    } else {
-                        m_acceleration = m_carAILogic.m_lastAcceleration;
-                    }
-                }
-                
-                m_carAILogic.m_lastAcceleration = m_acceleration;
-                m_carAILogic.m_lastDist = dist;
+        //else
+        //{
+        //    if (this.tag == "TruckSphere")
+        //    {
+        //        if (!m_truckAILogic.m_hitOnLeft && !m_truckAILogic.m_hitOnRight && !m_truckAILogic.m_hitOnFront)
+        //        {
+        //            m_acceleration = 1.0f * ACCELERATION;
+        //        }
+        //        else if (m_truckAILogic.m_hitOnLeft || m_truckAILogic.m_hitOnRight)
+        //        {
+        //            m_acceleration = 0.8f * ACCELERATION;
+        //        }
+        //        else if (m_truckAILogic.m_hitOnLeft && m_truckAILogic.m_hitOnRight)
+        //        {
+        //            m_acceleration = 0.5f * ACCELERATION;
+        //        }
+        //        m_breaking = false;
+        //    }
+        //    //else
+        //    //{
+        //    //    float dist = m_carAILogic.m_directionToTruck;
+        //    //    m_acceleration = m_carAILogic.m_lastAcceleration;
+        //    //    if (dist > 30f)
+        //    //    {
+        //    //        m_acceleration += 250f;
+        //    //    }
+        //    //    else if (dist < -20f)
+        //    //    {
+        //    //        m_acceleration -= 250f;
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //        if (dist < m_carAILogic.m_lastDist)
+        //    //        {
+        //    //            m_acceleration -= 300f;
+        //    //        }
+        //    //        else if (dist > m_carAILogic.m_lastDist)
+        //    //        {
+        //    //            m_acceleration += 300f;
+        //    //        }
+        //    //        else
+        //    //        {
+        //    //            m_acceleration = m_carAILogic.m_lastAcceleration;
+        //    //        }
+        //    //    }
 
-                m_breaking = false;
-            }
-        }
+        //    //    //m_carAILogic.m_lastAcceleration = m_acceleration;
+        //    //    //m_carAILogic.m_lastDist = dist;
 
-        if(this.tag == "TruckSphere") {
-            if(m_truckAILogic.m_truckLeftWheelOffroad || m_truckAILogic.m_truckRightWheelOffroad) {
-                m_acceleration = m_acceleration / 2.0f;
-            }
-        } else if ((m_carAILogic.m_carLeftWheelOffroad || m_carAILogic.m_carRightWheelOffroad) && !m_startCamera.activeSelf) {
-                m_acceleration = m_acceleration / 2.0f;
-        }
-         
+        //    //    //m_breaking = false;
+        //    //}
+
+        //    else
+        //    {
+        //        transform.position = Vector3.Lerp(transform.position, m_Truck.transform.position, .01f);
+        //    }
+
+        //}
+
+        //if(this.tag == "TruckSphere") {
+        //    if(m_truckAILogic.m_truckLeftWheelOffroad || m_truckAILogic.m_truckRightWheelOffroad) {
+        //        m_acceleration = m_acceleration / 2.0f;
+        //    }
+        //} else if ((m_carAILogic.m_carLeftWheelOffroad || m_carAILogic.m_carRightWheelOffroad) && !m_startCamera.activeSelf) {
+        //        m_acceleration = m_acceleration / 2.0f;
+        //}
+
         if (m_acceleration > .1f)
         {
             m_reverse = false;
@@ -146,16 +171,40 @@ public class SphereController : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        if (Mathf.Abs(m_acceleration) > .1)
+        if (m_ActivePlayer)
         {
-            m_force = m_acceleration * m_Steering.forward;
+            if (Mathf.Abs(m_acceleration) > .1)
+            {
+                m_force = m_acceleration * m_Steering.forward;
+            }
+            else
+            {
+                m_force = new Vector3(0, 0, 0);
+            }
+            m_rigidbody.AddForce(m_force);
         }
         else
         {
-            m_force = new Vector3(0, 0, 0);
+            if (this.tag == "TruckSphere")
+            {
+                if (!m_truckAILogic.m_hitOnLeft && !m_truckAILogic.m_hitOnRight && !m_truckAILogic.m_hitOnFront)
+                {
+                    m_acceleration = 1.0f * ACCELERATION;
+                }
+                else if (m_truckAILogic.m_hitOnLeft || m_truckAILogic.m_hitOnRight)
+                {
+                    m_acceleration = 0.8f * ACCELERATION;
+                }
+                else if (m_truckAILogic.m_hitOnLeft && m_truckAILogic.m_hitOnRight)
+                {
+                    m_acceleration = 0.5f * ACCELERATION;
+                }
+                m_breaking = false;
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(transform.position, m_Truck.transform.position, .01f);
+            }
         }
-        m_rigidbody.AddForce(m_force);
-
     }
 }
